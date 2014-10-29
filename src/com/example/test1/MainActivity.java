@@ -1,5 +1,5 @@
 package com.example.test1;
-
+//I made a change - Jonathan Fitzgibbon
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
