@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">test1</string>
+    <string name="app_name">USC Connect</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_search_page">SearchPage</string>
+    <string name="title_activity_student_log">StudentLog</string>
+    <string name="title_activity_about_page">AboutPage</string>
 
 </resources>
