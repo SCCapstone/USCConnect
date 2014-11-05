@@ -1,19 +1,103 @@
 package com.example.uscconnect;
 
 import android.app.Activity;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 public class SearchPage extends Activity {
 
+	DBAdapter myDb;
+	String endl = "\n";
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search_page);
+		
+		openDB();
 	}
 
 	@Override
+	protected void onDestroy() {
+		super.onDestroy();	
+		closeDB();
+	}
+
+
+	private void openDB() {
+		myDb = new DBAdapter(this);
+		myDb.open();
+	}
+	private void closeDB() {
+		myDb.close();
+	}
+
+	
+	
+	private void displayText(String message) {
+        TextView textView = (TextView) findViewById(R.id.textDisplay);
+        textView.setText(message);
+	}
+	
+	
+
+	public void onClick_AddRecord(View v) {
+		displayText("Clicked add record!");
+		
+		long newId = myDb.insertRow("Jenny", 5559, "Green");
+		
+		// Query for the record we just added.
+		// Use the ID:
+		Cursor cursor = myDb.getRow(newId);
+		displayRecordSet(cursor);
+	}
+
+	public void onClick_ClearAll(View v) {
+		displayText("Clicked clear all!");
+		myDb.deleteAll();
+	}
+
+	public void onClick_DisplayRecords(View v) {
+		displayText("Clicked display record!");
+		
+		Cursor cursor = myDb.getAllRows();
+		displayRecordSet(cursor);
+	}
+	
+	// Display an entire record set to the screen.
+	private void displayRecordSet(Cursor cursor) {
+		String message = "";
+		// populate the message from the cursor
+		
+		// Reset cursor to start, checking to see if there's data:
+		if (cursor.moveToFirst()) {
+			do {
+				// Process the data:
+				int id = cursor.getInt(DBAdapter.COL_ROWID);
+				String name = cursor.getString(DBAdapter.COL_NAME);
+				int studentNumber = cursor.getInt(DBAdapter.COL_STUDENTNUM);
+				String favColour = cursor.getString(DBAdapter.COL_FAVCOLOUR);
+				
+				// Append data to the message:
+				message += "id=" + id
+						   +", name=" + name
+						   +", #=" + studentNumber
+						   +", Colour=" + favColour
+						   +"\n";
+			} while(cursor.moveToNext());
+		}
+		
+		// Close the cursor to avoid a resource leak.
+		cursor.close();
+		
+		displayText(message);
+	}
+
+	/*@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.search_page, menu);
@@ -30,5 +114,5 @@ public class SearchPage extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
-	}
+	}*/
 }
