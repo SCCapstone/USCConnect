@@ -1,5 +1,8 @@
 # cache for current jar dependency. DO NOT EDIT.
 # format is <lastModified> <length> <SHA-1> <path>
 # Encoding is UTF-8
+<<<<<<< HEAD
 1415023334000 987314 3b20dc871d179ba476082efe543dc1b38db46e30 /home/joseph/Documents/eclipse/test3/libs/android-support-v4.jar
 1414020166000 987314 3b20dc871d179ba476082efe543dc1b38db46e30 /home/joseph/Documents/eclipse/appcompat_v7/libs/android-support-v4.jar
+=======
+>>>>>>> f9bf17653793347e49f3b3c617722e268a905575

@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
     package="com.example.test3"
+=======
+    package="com.example.uscconnect"
+>>>>>>> f9bf17653793347e49f3b3c617722e268a905575
     android:versionCode="1"
     android:versionName="1.0" >
 
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="21" />
+<<<<<<< HEAD
+=======
+    
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+>>>>>>> f9bf17653793347e49f3b3c617722e268a905575
 
     <application
         android:allowBackup="true"
@@ -14,7 +24,11 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
+<<<<<<< HEAD
             android:name=".MainActivity"
+=======
+            android:name=".MainPage"
+>>>>>>> f9bf17653793347e49f3b3c617722e268a905575
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +36,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
+=======
+        <activity
+            android:name=".SearchPage"
+            android:label="@string/title_activity_search_page" >
+        </activity>
+        <activity
+            android:name=".StudentLog"
+            android:label="@string/title_activity_student_log" >
+        </activity>
+        <activity
+            android:name=".AboutPage"
+            android:label="@string/title_activity_about_page" >
+        </activity>
+>>>>>>> f9bf17653793347e49f3b3c617722e268a905575
     </application>
 
 </manifest>
