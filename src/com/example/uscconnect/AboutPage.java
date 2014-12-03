@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class AboutPage extends Activity {
 
@@ -14,7 +15,7 @@ public class AboutPage extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_about_page);
-		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=JYuMMhll4TA")));
+//		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=JYuMMhll4TA")));
 	}
 
 	@Override
@@ -24,6 +25,11 @@ public class AboutPage extends Activity {
 		return true;
 	}
 
+	public void imgBtnClicked(View v) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=JYuMMhll4TA")));
+
+	}
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will
