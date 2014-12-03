@@ -34,10 +34,23 @@ public class DatabaseConvert {
 	}
 
 	public static void main(String[] args) throws MalformedURLException, IOException {
+		DatabaseConvert t = new DatabaseConvert();
+		String[][] testarray= new String[619][34]; // 619 opportunities || 34 fields in each
+		testarray=t.arrayReturn("http://cse.sc.edu/~ammer/uscconnect_opportunities_1414761945.csv");
+		// Print off array - TESTING ONLY - checks databaseArray
+		for (int i = 0; i < 619 - 1; i++) {
+			for (int j = 0; j < 34; j++) {
+				// System.out.println(i + " : " + j);
+				System.out.println(testarray[i][j]);
+			}
+		}
+	}
+
+	public static String[][] arrayReturn(String getURL) throws MalformedURLException, IOException {
 		int counter = 0;
 		List<String> splitStringList = new ArrayList<String>();
 		// gets file from server
-		String theURL = "http://cse.sc.edu/~ammer/uscconnect_opportunities_1414761945.csv"; // url of file to retrieve
+		String theURL = getURL;// "http://cse.sc.edu/~ammer/uscconnect_opportunities_1414761945.csv"; // url of file to retrieve
 		String theFile = "/acct/s1/ammer/Desktop/uscconnect_opportunities.csv"; // where to save file on device
 
 		saveUrl(theFile, theURL); // method to get file from internet
@@ -107,5 +120,7 @@ public class DatabaseConvert {
 		// System.out.println(databaseArray[i][j]);
 		// }
 		// }
+
+		return (databaseArray);
 	}
 }
