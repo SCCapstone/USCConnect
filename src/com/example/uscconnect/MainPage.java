@@ -7,7 +7,10 @@ import java.net.MalformedURLException;
 import com.parse.Parse;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,7 +23,8 @@ public class MainPage extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       
+
+		 
         setContentView(R.layout.activity_main_page);
         
         Button Search = (Button)findViewById(R.id.button1);
@@ -28,6 +32,8 @@ public class MainPage extends Activity {
         	@Override
         	public void onClick(View view) {
         		Intent myIntent = new Intent(view.getContext(), SearchPage.class);
+        		ProgressDialog dialog = ProgressDialog.show(MainPage.this, "", 
+                        "Loading. Please wait...", true);
         		startActivityForResult(myIntent, 0);
         	}
         });
@@ -50,7 +56,15 @@ public class MainPage extends Activity {
             }
         });
         
-        Parse.initialize(this, "uv0wiLDntmTYohfjvjJrICI6nSae1hFc20GPf9JJ", "yvbChURyeihU8wCB6dyLWwZjSwkU9V0l11oQqeA7");
+        Button Application = (Button)findViewById(R.id.button4);
+        Application.setOnClickListener(new View.OnClickListener() {
+            @Override
+			public void onClick(View view) {
+        		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.sc.edu/uscconnect/gldapplication")));
+
+            }
+        });
+      //  Parse.initialize(this, "uv0wiLDntmTYohfjvjJrICI6nSae1hFc20GPf9JJ", "yvbChURyeihU8wCB6dyLWwZjSwkU9V0l11oQqeA7");
         
         
     }

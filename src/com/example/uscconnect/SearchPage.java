@@ -1,148 +1,90 @@
 package com.example.uscconnect;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.sql.Date;
 import java.util.Calendar;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.text.Html;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-<<<<<<< HEAD
-=======
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
->>>>>>> origin/master
 import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
 
 public class SearchPage extends Activity {
 
 	DBAdapter myDb;
 	String endl = "\n";
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> origin/master
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search_page);
-<<<<<<< HEAD
 		
-=======
-
->>>>>>> origin/master
 		openDB();
+		final EditText editText = (EditText) findViewById(R.id.autoCompleteTextView1);
+		//editText.setOnEditorActionListener(){
+
+			editText.setOnEditorActionListener(new OnEditorActionListener() {
+			    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+			        boolean handled = false;
+			        if (actionId == EditorInfo.IME_ACTION_GO) {
+			        	EditText Player = (EditText) findViewById(R.id.autoCompleteTextView1);
+			    		String searchKeyword = Player.getText().toString(); // actv.getText().toString();
+			    		Cursor c = myDb.test(searchKeyword);
+
+			    		displayRecordSet2(c, searchKeyword);
+			    		InputMethodManager imm = (InputMethodManager)getSystemService( Context.INPUT_METHOD_SERVICE); //txtName is a reference of an EditText Field 
+			    		imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+			            handled = true;
+			        }
+			        return handled;
+			    }
+			});
 	}
 
 	@Override
 	protected void onDestroy() {
-<<<<<<< HEAD
-		super.onDestroy();	
-		closeDB();
-	}
-
-
-	private void openDB() {
-		myDb = new DBAdapter(this);
-		myDb.open();
-	}
-	private void closeDB() {
-		myDb.close();
-	}
-
-	
-	
-	private void displayText(String message) {
-        TextView textView = (TextView) findViewById(R.id.textDisplay);
-        textView.setText(message);
-	}
-	
-	
-
-	public void onClick_AddRecord(View v) {
-		displayText("Clicked add record!");
-		
-		long newId = myDb.insertRow("Jenny", 5559, "Green");
-		
-		// Query for the record we just added.
-		// Use the ID:
-		Cursor cursor = myDb.getRow(newId);
-		displayRecordSet(cursor);
-	}
-
-	public void onClick_ClearAll(View v) {
-		displayText("Clicked clear all!");
-		myDb.deleteAll();
-	}
-
-	public void onClick_DisplayRecords(View v) {
-		displayText("Clicked display record!");
-		
-		Cursor cursor = myDb.getAllRows();
-		displayRecordSet(cursor);
-	}
-	
-	// Display an entire record set to the screen.
-	private void displayRecordSet(Cursor cursor) {
-		String message = "";
-		// populate the message from the cursor
-		
-		// Reset cursor to start, checking to see if there's data:
-		if (cursor.moveToFirst()) {
-			do {
-				// Process the data:
-				int id = cursor.getInt(DBAdapter.COL_ROWID);
-				String name = cursor.getString(DBAdapter.COL_NAME);
-				int studentNumber = cursor.getInt(DBAdapter.COL_STUDENTNUM);
-				String favColour = cursor.getString(DBAdapter.COL_FAVCOLOUR);
-				
-				// Append data to the message:
-				message += "id=" + id
-						   +", name=" + name
-						   +", #=" + studentNumber
-						   +", Colour=" + favColour
-						   +"\n";
-			} while(cursor.moveToNext());
-		}
-		
-		// Close the cursor to avoid a resource leak.
-		cursor.close();
-		
-		displayText(message);
-	}
-
-	/*@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.search_page, menu);
-		return true;
-=======
 		super.onDestroy();
 		closeDB();
->>>>>>> origin/master
 	}
 
-	private void OnClickEmpty() {
-
+	private void OnClickGO() {
+		
 	}
 
 	private void openDB() {
 		myDb = new DBAdapter(this);
 		myDb.open();
-		myDb.deleteAll();
 		BufferedReader reader = null;
 		Calendar cal = Calendar.getInstance();
 		Date date = new Date(0);
 		cal.setTime(date);
 		int hour = cal.get(Calendar.HOUR_OF_DAY);
 		int minutes = cal.get(Calendar.MINUTE);
-		if (/*hour == 10 && minutes >= 30 || hour == 11 && minutes <= 30*/ 1==1) {
+		if (1==1/*hour == 10 && minutes >= 30 || hour == 11 && minutes <= 30*/) {
+			myDb.deleteAll();
+
 			try {
 				reader = new BufferedReader(new InputStreamReader(getAssets().open(
 						"uscconnect_opportunities_1414761945.csv"), "UTF-8"));
@@ -150,6 +92,8 @@ public class SearchPage extends Activity {
 	
 				// do reading, usually loop until end of file reading
 				String mLine = reader.readLine();
+
+				// To dismiss the dialog
 				while (mLine != null) {
 					// process line
 					String[] databaseArray = mLine.split("\",");
@@ -246,6 +190,7 @@ public class SearchPage extends Activity {
 				}
 			}
 		}
+
 	}
 
 	private void closeDB() {
@@ -255,20 +200,117 @@ public class SearchPage extends Activity {
 	private void displayText(String message) {
 		TextView textView = (TextView) findViewById(R.id.textDisplay);
 		textView.setText(message);
+//		textView.setText(Html.fromHtml("blah blah <a href=\"http://www.sc.edu/uscconnect/participate/opport_detail.php?oid=630\">some text to be linkified</a> blah blah"));
+
+		textView.setKeyListener(null);
+	}
+	
+	public void downoladFile(){
+		URL url = null;
+		try {
+			url = new URL("some url");
+		} catch (MalformedURLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		//create the new connection
+		HttpURLConnection urlConnection = null;
+		try {
+			urlConnection = (HttpURLConnection) url.openConnection();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		//set up some things on the connection
+		try {
+			urlConnection.setRequestMethod("GET");
+		} catch (ProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		urlConnection.setDoOutput(true);
+		//and connect!
+		try {
+			urlConnection.connect();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//set the path where we want to save the file
+		//in this case, going to save it on the root directory of the
+		//sd card.
+		File SDCardRoot = new File("/sdcard/"+"Some Folder Name/");
+		//create a new file, specifying the path, and the filename
+		//which we want to save the file as.
+		File file = new File(SDCardRoot,"some file name");
+		//this will be used to write the downloaded data into the file we created
+		FileOutputStream fileOutput = null;
+		try {
+			fileOutput = new FileOutputStream(file);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//this will be used in reading the data from the internet
+		InputStream inputStream = null;
+		try {
+			inputStream = urlConnection.getInputStream();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//this is the total size of the file
+		int totalSize = urlConnection.getContentLength();
+		//variable to store total downloaded bytes
+		int downloadedSize = 0;
+		//create a buffer...
+		byte[] buffer = new byte[1024];
+		int bufferLength = 0; //used to store a temporary size of the buffer
+		//now, read through the input buffer and write the contents to the file
+		try {
+			while ( (bufferLength = inputStream.read(buffer)) > 0 ) 
+			{
+			//add the data in the buffer to the file in the file output stream (the file on the sd card
+			fileOutput.write(buffer, 0, bufferLength);
+			//add up the size so we know how much is downloaded
+			downloadedSize += bufferLength;
+			int progress=(int)(downloadedSize*100/totalSize);
+			//this is where you would do something to report the prgress, like this maybe
+
+			//updateProgress(downloadedSize, totalSize);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//close the output stream when done
+		try {
+			fileOutput.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void onClick_test(View v) {
 		// AutoCompleteTextView actv;
 		// actv = (AutoCompleteTextView)
 		// findViewById(R.id.autoCompleteTextView1);
+		InputMethodManager inputManager = (InputMethodManager)
+                getSystemService(Context.INPUT_METHOD_SERVICE); 
+
+		inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                   InputMethodManager.HIDE_NOT_ALWAYS);
 
 		EditText Player = (EditText) findViewById(R.id.autoCompleteTextView1);
 		String searchKeyword = Player.getText().toString(); // actv.getText().toString();
-		Cursor c = myDb.test(searchKeyword);
-
-		displayRecordSet2(c, searchKeyword);
+		Cursor c = null;
+		if (searchKeyword.length() != 0){
+			c = myDb.test(searchKeyword);
+			displayRecordSet2(c, searchKeyword);
+		}
 	}
-
+	
 	public void onClick_AddRecord(View v) {
 		displayText("Clicked add record!");
 
@@ -364,10 +406,6 @@ public class SearchPage extends Activity {
 						+ "\n ************* \n";
 			} while (cursor.moveToNext());
 		}
-<<<<<<< HEAD
-		return super.onOptionsItemSelected(item);
-	}*/
-=======
 
 		// Close the cursor to avoid a resource leak.
 		cursor.close();
@@ -390,9 +428,9 @@ public class SearchPage extends Activity {
 				String favColour = cursor.getString(3).replace('\"', '\0');
 
 				// Append data to the message:
-				message += "Title= " + name + "\n"
-						+"http://www.sc.edu/uscconnect/participate/opport_detail.php?oid="
-						+ id 
+				String website = "http://www.sc.edu/uscconnect/participate/opport_detail.php?oid=" + id ;
+				message += name + "\n"
+						+ website
 						+ "\n----------------------------------------------\n";
 			} while (cursor.moveToNext());
 		}
@@ -401,8 +439,8 @@ public class SearchPage extends Activity {
 		cursor.close();
 
 		displayText(message);
-	}
-
+	
+	
 	/*
 	 * @Override public boolean onCreateOptionsMenu(Menu menu) { // Inflate the
 	 * menu; this adds items to the action bar if it is present.
@@ -416,5 +454,5 @@ public class SearchPage extends Activity {
 	 * super.onOptionsItemSelected(item); }
 	 */
 
->>>>>>> origin/master
+}
 }

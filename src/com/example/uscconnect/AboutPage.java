@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.*;
 
 public class AboutPage extends Activity {
 
@@ -30,6 +31,26 @@ public class AboutPage extends Activity {
 		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=JYuMMhll4TA")));
 
 	}
+	
+	
+	public void instaClicked(View v) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/uscconnect/")));
+
+	}
+	
+	public void FBKClicked(View v) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/pages/USC-Connect-University-of-South-Carolina/435527389824000")));
+
+	}
+	
+	public void TweetClicked(View v) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/USCConnect")));
+
+	}
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will

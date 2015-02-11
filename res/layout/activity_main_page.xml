@@ -1,8 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:screenOrientation="portrait"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/tailfeather"
+    android:background="@drawable/feather"
     android:gravity="center_horizontal"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -23,47 +24,21 @@
         android:text="Search Opportunities"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
+        tools:ignore="UnusedAttribute"
         android:color="#FFFFFF" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp"
-        android:alpha="100"
-        android:background="#636363"
-        android:text="About USC Connect"
-        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button3"
-        android:layout_alignLeft="@+id/button3"
-        android:layout_alignRight="@+id/button3"
+        android:layout_above="@+id/button4"
+        android:layout_alignLeft="@+id/button4"
+        android:layout_alignRight="@+id/button4"
         android:layout_marginBottom="24dp"
         android:alpha="100"
         android:background="#636363"
         android:text="Student Log"
         android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="27dp"
-        android:gravity="center"
-        android:shadowColor="#000000"
-        android:shadowDx="10"
-        android:shadowRadius="10"
-        android:text="Welcome to the\nUSC Connect App"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp" />
 
     <ImageView
         android:id="@+id/imageView1"
@@ -71,7 +46,32 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="14dp"
         android:src="@drawable/uscconnect" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="102dp"
+        android:alpha="100"
+        android:background="#636363"
+        android:onClick="startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(&quot;https://www.youtube.com/watch?v=JYuMMhll4TA&quot;)));"
+        android:text="GLD Application"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button4"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="36dp"
+        android:alpha="100"
+        android:background="#636363"
+        android:text="About USC Connect"
+        android:textColor="#FFFFFF" />
 
 </RelativeLayout>

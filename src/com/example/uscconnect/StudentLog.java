@@ -2,6 +2,9 @@
 
 package com.example.uscconnect;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import com.example.uscconnect.NoteEdit;
 import android.app.ListActivity;
 import android.content.Intent;
@@ -20,7 +23,8 @@ public class StudentLog extends ListActivity {
 	    
 	    private static final int INSERT_ID = Menu.FIRST;
 	    private static final int DELETE_ID = Menu.FIRST + 1;
-
+	    
+	    
 	    private NotesDbAdapter mDbHelper;
 	    
 	    /** Called when the activity is first created. */
@@ -39,22 +43,26 @@ public class StudentLog extends ListActivity {
 	        	}
 	        });
 	        
-	        Button delete = (Button)findViewById(R.id.button2);
+	        /*Button delete = (Button)findViewById(R.id.button2);
 	        delete.setOnClickListener(new View.OnClickListener() {
 	            @Override
 				public void onClick(View view) {
 	            	mDbHelper.deleteNote(getListView().getSelectedItemId());
 		            fillData();
 	            }
-	        });
+	        });*/
 	    }
 	    
 	    private void fillData() {
 	        Cursor notesCursor = mDbHelper.fetchAllNotes();
 	        startManagingCursor(notesCursor);
 	        
+
+	        
 	        // Create an array to specify the fields we want to display in the list (only TITLE)
 	        String[] from = new String[]{NotesDbAdapter.KEY_TITLE};
+	        
+	        
 	        
 	        // and an array of the fields we want to bind those fields to (in this case just text1)
 	        int[] to = new int[]{R.id.text1};

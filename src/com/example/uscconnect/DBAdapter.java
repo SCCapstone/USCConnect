@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-// ------------------------------------ DBADapter.java ---------------------------------------------
-
-// TODO: Change the package to match your project.
-package com.example.uscconnect;
-
-=======
 /*
  * Copyright (C) 2008 Google Inc.
  * 
@@ -27,7 +20,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
->>>>>>> origin/master
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -54,19 +46,6 @@ public class DBAdapter {
 	 * CHANGE 1:
 	 */
 	// TODO: Setup your fields here:
-<<<<<<< HEAD
-	public static final String KEY_NAME = "name";
-	public static final String KEY_STUDENTNUM = "studentnum";
-	public static final String KEY_FAVCOLOUR = "favcolour";
-	
-	// TODO: Setup your field numbers here (0 = KEY_ROWID, 1=...)
-	public static final int COL_NAME = 1;
-	public static final int COL_STUDENTNUM = 2;
-	public static final int COL_FAVCOLOUR = 3;
-
-	
-	public static final String[] ALL_KEYS = new String[] {KEY_ROWID, KEY_NAME, KEY_STUDENTNUM, KEY_FAVCOLOUR};
-=======
 	public static final String KEY_ID = "name";
 	public static final String KEY_TITLE = "studentnum";
 	public static final String KEY_FAVCOLOUR = "favcolour";
@@ -179,7 +158,6 @@ public class DBAdapter {
 		KEY_33,
 		KEY_34
 		};
->>>>>>> origin/master
 	
 	// DB info: it's name, and the table we are using (just one).
 	public static final String DATABASE_NAME = "MyDb";
@@ -201,11 +179,6 @@ public class DBAdapter {
 			//		(http://www.sqlite.org/datatype3.html)
 			//  - "not null" means it is a required field (must be given a value).
 			// NOTE: All must be comma separated (end of line!) Last one must have NO comma!!
-<<<<<<< HEAD
-			+ KEY_NAME + " text not null, "
-			+ KEY_STUDENTNUM + " integer not null, "
-			+ KEY_FAVCOLOUR + " string not null"
-=======
 			+ KEY_ID + " text not null, "
 			+ KEY_TITLE + " string not null, "
 			+ KEY_FAVCOLOUR + " string not null,"
@@ -240,7 +213,6 @@ public class DBAdapter {
 			+ KEY_32 + " string not null,"
 			+ KEY_33 + " string not null,"
 			+ KEY_34 + " string not null"
->>>>>>> origin/master
 			
 			// Rest  of creation:
 			+ ");";
@@ -249,11 +221,7 @@ public class DBAdapter {
 	private final Context context;
 	
 	private DatabaseHelper myDBHelper;
-<<<<<<< HEAD
-	private SQLiteDatabase db;
-=======
 	public static SQLiteDatabase db;
->>>>>>> origin/master
 
 	/////////////////////////////////////////////////////////////////////
 	//	Public methods:
@@ -267,11 +235,8 @@ public class DBAdapter {
 	// Open the database connection.
 	public DBAdapter open() {
 		db = myDBHelper.getWritableDatabase();
-<<<<<<< HEAD
-=======
 		
 	
->>>>>>> origin/master
 		return this;
 	}
 	
@@ -281,9 +246,6 @@ public class DBAdapter {
 	}
 	
 	// Add a new set of values to the database.
-<<<<<<< HEAD
-	public long insertRow(String name, int studentNum, String favColour) {
-=======
 	public long insertRow(String opport_id,
 			String title,
 			String favColour,
@@ -319,7 +281,6 @@ public class DBAdapter {
 			String thirtythree,
 			String thirtyfour
 			) {
->>>>>>> origin/master
 		/*
 		 * CHANGE 3:
 		 */		
@@ -327,11 +288,6 @@ public class DBAdapter {
 		// TODO: Also change the function's arguments to be what you need!
 		// Create row's data:
 		ContentValues initialValues = new ContentValues();
-<<<<<<< HEAD
-		initialValues.put(KEY_NAME, name);
-		initialValues.put(KEY_STUDENTNUM, studentNum);
-		initialValues.put(KEY_FAVCOLOUR, favColour);
-=======
 		initialValues.put(KEY_ID, opport_id);
 		initialValues.put(KEY_TITLE, title);
 		initialValues.put(KEY_FAVCOLOUR, favColour);
@@ -366,7 +322,6 @@ public class DBAdapter {
 		initialValues.put(KEY_32, thirtytwo);
 		initialValues.put(KEY_33, thirtythree);
 		initialValues.put(KEY_34, thirtyfour);
->>>>>>> origin/master
 		
 		// Insert it into the database.
 		return db.insert(DATABASE_TABLE, null, initialValues);
@@ -374,11 +329,7 @@ public class DBAdapter {
 	
 	// Delete a row from the database, by rowId (primary key)
 	public boolean deleteRow(long rowId) {
-<<<<<<< HEAD
-		String where = KEY_ROWID + "=" + rowId;
-=======
 		String where = KEY_ROWID + "=" + rowId;		
->>>>>>> origin/master
 		return db.delete(DATABASE_TABLE, where, null) != 0;
 	}
 	
@@ -426,13 +377,8 @@ public class DBAdapter {
 		// TODO: Also change the function's arguments to be what you need!
 		// Create row's data:
 		ContentValues newValues = new ContentValues();
-<<<<<<< HEAD
-		newValues.put(KEY_NAME, name);
-		newValues.put(KEY_STUDENTNUM, studentNum);
-=======
 		newValues.put(KEY_ID, name);
 		newValues.put(KEY_TITLE, studentNum);
->>>>>>> origin/master
 		newValues.put(KEY_FAVCOLOUR, favColour);
 		
 		// Insert it into the database.
@@ -459,18 +405,11 @@ public class DBAdapter {
 		public void onCreate(SQLiteDatabase _db) {
 			_db.execSQL(DATABASE_CREATE_SQL);			
 		}
-<<<<<<< HEAD
-
-		@Override
-		public void onUpgrade(SQLiteDatabase _db, int oldVersion, int newVersion) {
-			Log.w(TAG, "Upgrading application's database from version " + oldVersion
-=======
 		
 		
 		@Override
 		public void onUpgrade(SQLiteDatabase _db, int oldVersion, int newVersion) {
 			Log.w(TAG, "UpgradinCOL_forthCOL_forthg application's database from version " + oldVersion
->>>>>>> origin/master
 					+ " to " + newVersion + ", which will destroy all old data!");
 			
 			// Destroy old database:
@@ -480,8 +419,6 @@ public class DBAdapter {
 			onCreate(_db);
 		}
 	}
-<<<<<<< HEAD
-=======
 
 
 	public Cursor test(String description) {
@@ -500,5 +437,4 @@ public class DBAdapter {
 		db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);			
 //		db.execSQL(query);			
 	}
->>>>>>> origin/master
 }

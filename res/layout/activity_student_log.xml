@@ -1,28 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/tailfeather"
+    android:background="@drawable/feather"
     android:orientation="vertical" >
 
     <ListView
         android:id="@+id/android:list"
         android:layout_width="wrap_content"
-        android:layout_height="250dp" />
+        android:layout_height="250dp"
+        android:layout_weight="1.03"
+        tools:listitem="@android:layout/simple_list_item_2" >
 
-<<<<<<< HEAD
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="94dp"
-        android:ems="10"
-        android:inputType="textMultiLine" />
+    </ListView>
 
-</RelativeLayout>
-=======
     <TextView
         android:id="@+id/android:empty"
         android:layout_width="wrap_content"
@@ -30,21 +22,12 @@
         android:text="No Notes!" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#636363"
-        android:text="Delete"
-        android:textColor="#FFFFFF" />
-
-    <Button
         android:id="@+id/button1"
         style="#636363"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#636363"
         android:text="Add"
         android:textColor="#FFFFFF" />
 
 </LinearLayout>
->>>>>>> origin/master

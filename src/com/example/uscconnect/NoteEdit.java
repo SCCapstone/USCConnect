@@ -93,17 +93,26 @@ public class NoteEdit extends Activity {
     }
     
     private void saveState() {
+    	
         String title = mTitleText.getText().toString();
         String body = mBodyText.getText().toString();
-
-        if (mRowId == null) {
-            long id = mDbHelper.createNote(title, body);
-            if (id > 0) {
-                mRowId = id;
-            }
-        } else {
-            mDbHelper.updateNote(mRowId, title, body);
+        if(title.isEmpty() && !body.isEmpty())
+        {
+        	title = "untitled";
+        }
+        if(title.isEmpty() && body.isEmpty())
+        {
+        //do nothing	
+        }
+        else{
+        	if (mRowId == null) {
+        		long id = mDbHelper.createNote(title, body);
+        		if (id > 0) {
+        			mRowId = id;
+        		}
+        	} else {
+        		mDbHelper.updateNote(mRowId, title, body);
+        	}
         }
     }
-    
 }
