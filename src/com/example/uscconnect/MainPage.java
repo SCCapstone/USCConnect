@@ -1,6 +1,9 @@
 package com.example.uscconnect;
 
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+
 import com.parse.Parse;
 
 import android.app.Activity;
@@ -17,6 +20,7 @@ public class MainPage extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+       
         setContentView(R.layout.activity_main_page);
         
         Button Search = (Button)findViewById(R.id.button1);
@@ -47,7 +51,7 @@ public class MainPage extends Activity {
         });
         
         Parse.initialize(this, "uv0wiLDntmTYohfjvjJrICI6nSae1hFc20GPf9JJ", "yvbChURyeihU8wCB6dyLWwZjSwkU9V0l11oQqeA7");
-
+        
         
     }
 
