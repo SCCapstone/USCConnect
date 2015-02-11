@@ -32,9 +32,10 @@ public class MainPage extends Activity {
         	@Override
         	public void onClick(View view) {
         		Intent myIntent = new Intent(view.getContext(), SearchPage.class);
-        		ProgressDialog dialog = ProgressDialog.show(MainPage.this, "", 
-                        "Loading. Please wait...", true);
+        		//ProgressDialog dialog = ProgressDialog.show(MainPage.this, "", 
+                  //      "Loading. Please wait...", true);
         		startActivityForResult(myIntent, 0);
+        		
         	}
         });
         
