@@ -48,74 +48,74 @@ public class DBAdapter {
 	// TODO: Setup your fields here:
 	public static final String KEY_ID = "name";
 	public static final String KEY_TITLE = "studentnum";
-	public static final String KEY_FAVCOLOUR = "favcolour";
-	public static final String KEY_forth = "forth";
-	public static final String KEY_5 = "five";
-	public static final String KEY_6= "six";
-	public static final String KEY_7= "seven";
-	public static final String KEY_8= "eight";
-	public static final String KEY_9 = "nine";
-	public static final String KEY_10= "ten";
-	public static final String KEY_11= "eleven";
-	public static final String KEY_12= "twelve";
-	public static final String KEY_13 = "thirteen";
-	public static final String KEY_14= "fourteen";
-	public static final String KEY_15= "fifteen";
-	public static final String KEY_16= "sixteen";
-	public static final String KEY_17 = "seventeen";
-	public static final String KEY_18= "eightteen";
-	public static final String KEY_19= "nineteen";
-	public static final String KEY_20= "twinty";
-	public static final String KEY_21 = "twintyone";
-	public static final String KEY_22= "twintytwo";
-	public static final String KEY_23= "twintythree";
-	public static final String KEY_24= "twintyfour";
-	public static final String KEY_25= "twenetyfive";
-	public static final String KEY_26= "twenetysix";
-	public static final String KEY_27 = "twenetyseven";
-	public static final String KEY_28= "twenetyeight";
-	public static final String KEY_29= "twenetynine";
-	public static final String KEY_30= "thirty";
-	public static final String KEY_31 = "thirtyone";
-	public static final String KEY_32= "thirtytwo";
-	public static final String KEY_33= "thirtythree";
-	public static final String KEY_34= "thirtyfour";
+	public static final String KEY_EXTERNALLINK = "favcolour";
+	public static final String KEY_DESCRIPTION = "forth";
+	public static final String KEY_EXPIRATIONDATE = "five";
+	public static final String KEY_OPPORTUNITYTYPE= "six";
+	public static final String KEY_OPPORTUNITYTYPEOTHER= "seven";
+	public static final String KEY_TIMEFRAME= "eight";
+	public static final String KEY_TIMEFRAMEOTHER = "nine";
+	public static final String KEY_TARGETGROUP= "ten";
+	public static final String KEY_TARGETGROUPOTHER= "eleven";
+	public static final String KEY_CREATIVECOMPONENT= "twelve";
+	public static final String KEY_CREATIVECOMPONENTOTHER = "thirteen";
+	public static final String KEY_STORYTITLE= "fourteen";
+	public static final String KEY_STORYEXTERNALLINK= "fifteen";
+	public static final String KEY_STORYDESCRIPTION= "sixteen";
+	public static final String KEY_STORYPHOTO = "seventeen";
+	public static final String KEY_SPONSORCAMPUS= "eightteen";
+	public static final String KEY_SPONSORPROGRAM= "nineteen";
+	public static final String KEY_SPONSORCOLLEGE= "twinty";
+	public static final String KEY_SPONSOROTHER = "twintyone";
+	public static final String KEY_PARTICIPATIONINSTRUCTIONS= "twintytwo";
+	public static final String KEY_EMAIL= "twintythree";
+	public static final String KEY_PHONE= "twintyfour";
+	public static final String KEY_PHONEEXT= "twenetyfive";
+	public static final String KEY_NAME= "twenetysix";
+	public static final String KEY_SUBMITTEDEMAIL = "twenetyseven";
+	public static final String KEY_STATUS= "twenetyeight";
+	public static final String KEY_AUTOARCHIVEDATE= "twenetynine";
+	public static final String KEY_USERADDED= "thirty";
+	public static final String KEY_USER2ACCES = "thirtyone";
+	public static final String KEY_DATEADDED= "thirtytwo";
+	public static final String KEY_DATEDELETED= "thirtythree";
+	public static final String KEY_DATEUPDATED= "thirtyfour";
 
 	// TODO: Setup your field numbers here (0 = KEY_ROWID, 1=...)
 	public static final int COL_ID = 1;
 	public static final int COL_TITLE = 2;
-	public static final int COL_FAVCOLOUR = 3;
-	public static final int COL_forth = 4;
-	public static final int COL_5 = 5;
-	public static final int COL_6 = 6;
-	public static final int COL_7 = 7;
-	public static final int COL_8 = 8;
-	public static final int COL_9 = 9;
-	public static final int COL_10 = 10;
-	public static final int COL_11 = 11;
-	public static final int COL_12 = 12;
-	public static final int COL_13 = 13;
-	public static final int COL_14 = 14;
-	public static final int COL_15 = 15;
-	public static final int COL_16 = 16;
-	public static final int COL_17 = 17;
-	public static final int COL_18 = 18;
-	public static final int COL_19 = 19;
-	public static final int COL_20 = 20;
-	public static final int COL_21 = 21;
-	public static final int COL_22 = 22;
-	public static final int COL_23 = 23;
-	public static final int COL_24 = 24;
-	public static final int COL_25 = 25;
-	public static final int COL_26 = 26;
-	public static final int COL_27 = 27;
-	public static final int COL_28 = 28;
-	public static final int COL_29 = 29;
-	public static final int COL_30 = 30;
-	public static final int COL_31 = 31;
-	public static final int COL_32 = 32;
-	public static final int COL_33 = 33;
-	public static final int COL_34 = 34;
+	public static final int COL_EXTERNALLINK = 3;
+	public static final int COL_DESCRIPTION = 4;
+	public static final int COL_EXPIRATIONDATE = 5;
+	public static final int COL_OPPORTUNITYTYPE = 6;
+	public static final int COL_OPPORTUNITYTYPEOTHER = 7;
+	public static final int COL_TIMEFRAME = 8;
+	public static final int COL_TIMEFRAMEOTHER = 9;
+	public static final int COL_TARGETGROUP = 10;
+	public static final int COL_TARGETGROUPOTHER = 11;
+	public static final int COL_CREATIVECOMPONENT = 12;
+	public static final int COL_CREATIVECOMPONENTOTHER = 13;
+	public static final int COL_STORYTITLE = 14;
+	public static final int COL_STORYEXTERNALLINK = 15;
+	public static final int COL_STORYDESCRIPTION = 16;
+	public static final int COL_STORYPHOTO = 17;
+	public static final int COL_STORYCAMPUS = 18;
+	public static final int COL_SPONSORPROGRAM = 19;
+	public static final int COL_SPONSORCOLLEGE = 20;
+	public static final int COL_SPONSOROTHER = 21;
+	public static final int COL_PARTICIPATIONINSTRUCTIONS = 22;
+	public static final int COL_EMAIL = 23;
+	public static final int COL_PHONE = 24;
+	public static final int COL_PHONEEXT = 25;
+	public static final int COL_NAME = 26;
+	public static final int COL_SUBMITTEDEMAIL = 27;
+	public static final int COL_STATUS = 28;
+	public static final int COL_AUTOARCHIVEDATE = 29;
+	public static final int COL_USERADED = 30;
+	public static final int COL_USER2ADDED = 31;
+	public static final int COL_DATEADDED = 32;
+	public static final int COL_DATEDELETED = 33;
+	public static final int COL_DATEUPDATED = 34;
 	
 
 
@@ -124,39 +124,39 @@ public class DBAdapter {
 		KEY_ROWID,
 		KEY_ID,
 		KEY_TITLE, 
-		KEY_FAVCOLOUR,
-		KEY_forth,
-		KEY_5,
-		KEY_6,
-		KEY_7,
-		KEY_8,
-		KEY_8,
-		KEY_9,
-		KEY_10,
-		KEY_11,
-		KEY_12,
-		KEY_13,
-		KEY_14,
-		KEY_15,
-		KEY_16,
-		KEY_17,
-		KEY_18,
-		KEY_19,
-		KEY_20,
-		KEY_21,
-		KEY_22,
-		KEY_23,
-		KEY_24,
-		KEY_25,
-		KEY_26,
-		KEY_27,
-		KEY_28,
-		KEY_29,
-		KEY_30,
-		KEY_31,
-		KEY_32,
-		KEY_33,
-		KEY_34
+		KEY_EXTERNALLINK,
+		KEY_DESCRIPTION,
+		KEY_EXPIRATIONDATE,
+		KEY_OPPORTUNITYTYPE,
+		KEY_OPPORTUNITYTYPEOTHER,
+		KEY_TIMEFRAME,
+		KEY_TIMEFRAME,
+		KEY_TIMEFRAMEOTHER,
+		KEY_TARGETGROUP,
+		KEY_TARGETGROUPOTHER,
+		KEY_CREATIVECOMPONENT,
+		KEY_CREATIVECOMPONENTOTHER,
+		KEY_STORYTITLE,
+		KEY_STORYEXTERNALLINK,
+		KEY_STORYDESCRIPTION,
+		KEY_STORYPHOTO,
+		KEY_SPONSORCAMPUS,
+		KEY_SPONSORPROGRAM,
+		KEY_SPONSORCOLLEGE,
+		KEY_SPONSOROTHER,
+		KEY_PARTICIPATIONINSTRUCTIONS,
+		KEY_EMAIL,
+		KEY_PHONE,
+		KEY_PHONEEXT,
+		KEY_NAME,
+		KEY_SUBMITTEDEMAIL,
+		KEY_STATUS,
+		KEY_AUTOARCHIVEDATE,
+		KEY_USERADDED,
+		KEY_USER2ACCES,
+		KEY_DATEADDED,
+		KEY_DATEDELETED,
+		KEY_DATEUPDATED
 		};
 	
 	// DB info: it's name, and the table we are using (just one).
@@ -181,38 +181,38 @@ public class DBAdapter {
 			// NOTE: All must be comma separated (end of line!) Last one must have NO comma!!
 			+ KEY_ID + " text not null, "
 			+ KEY_TITLE + " string not null, "
-			+ KEY_FAVCOLOUR + " string not null,"
-			+ KEY_forth + " string not null,"
-			+ KEY_5 + " string not null,"
-			+ KEY_6 + " string not null,"
-			+ KEY_7 + " string not null,"
-			+ KEY_8 + " string not null,"
-			+ KEY_9 + " string not null,"
-			+ KEY_10 + " string not null,"
-			+ KEY_11 + " string not null,"
-			+ KEY_12 + " string not null,"
-			+ KEY_13 + " string not null,"
-			+ KEY_14 + " string not null,"
-			+ KEY_15 + " string not null,"
-			+ KEY_16 + " string not null,"
-			+ KEY_17 + " string not null,"
-			+ KEY_18 + " string not null,"
-			+ KEY_19 + " string not null,"
-			+ KEY_20 + " string not null,"
-			+ KEY_21 + " string not null,"
-			+ KEY_22 + " string not null,"
-			+ KEY_23 + " string not null,"
-			+ KEY_24 + " string not null,"
-			+ KEY_25 + " string not null,"
-			+ KEY_26 + " string not null,"
-			+ KEY_27 + " string not null,"
-			+ KEY_28 + " string not null,"
-			+ KEY_29 + " string not null,"
-			+ KEY_30 + " string not null,"
-			+ KEY_31 + " string not null,"
-			+ KEY_32 + " string not null,"
-			+ KEY_33 + " string not null,"
-			+ KEY_34 + " string not null"
+			+ KEY_EXTERNALLINK + " string not null,"
+			+ KEY_DESCRIPTION + " string not null,"
+			+ KEY_EXPIRATIONDATE + " string not null,"
+			+ KEY_OPPORTUNITYTYPE + " string not null,"
+			+ KEY_OPPORTUNITYTYPEOTHER + " string not null,"
+			+ KEY_TIMEFRAME + " string not null,"
+			+ KEY_TIMEFRAMEOTHER + " string not null,"
+			+ KEY_TARGETGROUP + " string not null,"
+			+ KEY_TARGETGROUPOTHER + " string not null,"
+			+ KEY_CREATIVECOMPONENT + " string not null,"
+			+ KEY_CREATIVECOMPONENTOTHER + " string not null,"
+			+ KEY_STORYTITLE + " string not null,"
+			+ KEY_STORYEXTERNALLINK + " string not null,"
+			+ KEY_STORYDESCRIPTION + " string not null,"
+			+ KEY_STORYPHOTO + " string not null,"
+			+ KEY_SPONSORCAMPUS + " string not null,"
+			+ KEY_SPONSORPROGRAM + " string not null,"
+			+ KEY_SPONSORCOLLEGE + " string not null,"
+			+ KEY_SPONSOROTHER + " string not null,"
+			+ KEY_PARTICIPATIONINSTRUCTIONS + " string not null,"
+			+ KEY_EMAIL + " string not null,"
+			+ KEY_PHONE + " string not null,"
+			+ KEY_PHONEEXT + " string not null,"
+			+ KEY_NAME + " string not null,"
+			+ KEY_SUBMITTEDEMAIL + " string not null,"
+			+ KEY_STATUS + " string not null,"
+			+ KEY_AUTOARCHIVEDATE + " string not null,"
+			+ KEY_USERADDED + " string not null,"
+			+ KEY_USER2ACCES + " string not null,"
+			+ KEY_DATEADDED + " string not null,"
+			+ KEY_DATEDELETED + " string not null,"
+			+ KEY_DATEUPDATED + " string not null"
 			
 			// Rest  of creation:
 			+ ");";
@@ -290,38 +290,38 @@ public class DBAdapter {
 		ContentValues initialValues = new ContentValues();
 		initialValues.put(KEY_ID, opport_id);
 		initialValues.put(KEY_TITLE, title);
-		initialValues.put(KEY_FAVCOLOUR, favColour);
-		initialValues.put(KEY_forth, forth);
-		initialValues.put(KEY_5, five);
-		initialValues.put(KEY_6, six);
-		initialValues.put(KEY_7, seven);
-		initialValues.put(KEY_8, eight);
-		initialValues.put(KEY_9, nine);
-		initialValues.put(KEY_10, ten);
-		initialValues.put(KEY_11, eleven);
-		initialValues.put(KEY_12, twelve);
-		initialValues.put(KEY_13, thirteen);
-		initialValues.put(KEY_14, fourteen);
-		initialValues.put(KEY_15, fifteen);
-		initialValues.put(KEY_16, sixteen);
-		initialValues.put(KEY_17, seventeen);
-		initialValues.put(KEY_18, eightteen);
-		initialValues.put(KEY_19, nineteen);
-		initialValues.put(KEY_20, twenty);
-		initialValues.put(KEY_21, twentyone);
-		initialValues.put(KEY_22, twentytwo);
-		initialValues.put(KEY_23, twentythree);
-		initialValues.put(KEY_24, twentyfour);
-		initialValues.put(KEY_25, twentyfive);
-		initialValues.put(KEY_26, twentysix);
-		initialValues.put(KEY_27, twentyseven);
-		initialValues.put(KEY_28, twentyeight);
-		initialValues.put(KEY_29, twentynine);
-		initialValues.put(KEY_30, thirty);
-		initialValues.put(KEY_31, thirtyone);
-		initialValues.put(KEY_32, thirtytwo);
-		initialValues.put(KEY_33, thirtythree);
-		initialValues.put(KEY_34, thirtyfour);
+		initialValues.put(KEY_EXTERNALLINK, favColour);
+		initialValues.put(KEY_DESCRIPTION, forth);
+		initialValues.put(KEY_EXPIRATIONDATE, five);
+		initialValues.put(KEY_OPPORTUNITYTYPE, six);
+		initialValues.put(KEY_OPPORTUNITYTYPEOTHER, seven);
+		initialValues.put(KEY_TIMEFRAME, eight);
+		initialValues.put(KEY_TIMEFRAMEOTHER, nine);
+		initialValues.put(KEY_TARGETGROUP, ten);
+		initialValues.put(KEY_TARGETGROUPOTHER, eleven);
+		initialValues.put(KEY_CREATIVECOMPONENT, twelve);
+		initialValues.put(KEY_CREATIVECOMPONENTOTHER, thirteen);
+		initialValues.put(KEY_STORYTITLE, fourteen);
+		initialValues.put(KEY_STORYEXTERNALLINK, fifteen);
+		initialValues.put(KEY_STORYDESCRIPTION, sixteen);
+		initialValues.put(KEY_STORYPHOTO, seventeen);
+		initialValues.put(KEY_SPONSORCAMPUS, eightteen);
+		initialValues.put(KEY_SPONSORPROGRAM, nineteen);
+		initialValues.put(KEY_SPONSORCOLLEGE, twenty);
+		initialValues.put(KEY_SPONSOROTHER, twentyone);
+		initialValues.put(KEY_PARTICIPATIONINSTRUCTIONS, twentytwo);
+		initialValues.put(KEY_EMAIL, twentythree);
+		initialValues.put(KEY_PHONE, twentyfour);
+		initialValues.put(KEY_PHONEEXT, twentyfive);
+		initialValues.put(KEY_NAME, twentysix);
+		initialValues.put(KEY_SUBMITTEDEMAIL, twentyseven);
+		initialValues.put(KEY_STATUS, twentyeight);
+		initialValues.put(KEY_AUTOARCHIVEDATE, twentynine);
+		initialValues.put(KEY_USERADDED, thirty);
+		initialValues.put(KEY_USER2ACCES, thirtyone);
+		initialValues.put(KEY_DATEADDED, thirtytwo);
+		initialValues.put(KEY_DATEDELETED, thirtythree);
+		initialValues.put(KEY_DATEUPDATED, thirtyfour);
 		
 		// Insert it into the database.
 		return db.insert(DATABASE_TABLE, null, initialValues);
@@ -379,7 +379,7 @@ public class DBAdapter {
 		ContentValues newValues = new ContentValues();
 		newValues.put(KEY_ID, name);
 		newValues.put(KEY_TITLE, studentNum);
-		newValues.put(KEY_FAVCOLOUR, favColour);
+		newValues.put(KEY_EXTERNALLINK, favColour);
 		
 		// Insert it into the database.
 		return db.update(DATABASE_TABLE, newValues, where, null) != 0;
@@ -425,7 +425,7 @@ public class DBAdapter {
 		// TODO Auto-generated method stub
 		Cursor crs=db.rawQuery("SELECT * FROM "
 				+ DATABASE_TABLE +" WHERE " 
-				+ KEY_forth + " LIKE '%" + description + "%';", null);
+				+ KEY_DESCRIPTION + " LIKE '%" + description + "%';", null);
 		return crs;
 //		db.execSQL("SELECT * FROM " + DATABASE_TABLE +" WHERE " + COL_8 + " LIKE '%gh%';");	
 	}
