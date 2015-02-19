@@ -18,6 +18,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.database.Cursor;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.KeyEvent;
@@ -28,6 +29,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
@@ -40,9 +42,13 @@ public class SearchPage extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search_page);
+
+//		openDB();
+		new LongOperation().execute("");
+
 		
-		openDB();
 		final EditText editText = (EditText) findViewById(R.id.autoCompleteTextView1);
+		
 		//editText.setOnEditorActionListener(){
 
 			editText.setOnEditorActionListener(new OnEditorActionListener() {
@@ -73,7 +79,11 @@ public class SearchPage extends Activity {
 		
 	}
 
-	private void openDB() {
+	void openDB() {
+//		LinearLayout linlaHeaderProgress = (LinearLayout) findViewById(R.id.linlaHeaderProgress);
+//		ProgressDialog progress;
+//		progress = ProgressDialog.show(this, "dialog title", "dialog message", true);
+
 		myDb = new DBAdapter(this);
 		myDb.open();
 		BufferedReader reader = null;
@@ -190,7 +200,7 @@ public class SearchPage extends Activity {
 				}
 			}
 		}
-
+//		progress.dismiss();
 	}
 
 	private void closeDB() {
@@ -350,38 +360,38 @@ public class SearchPage extends Activity {
 				int id = cursor.getInt(DBAdapter.COL_ROWID);
 				String name = cursor.getString(DBAdapter.COL_ID);
 				int studentNumber = cursor.getInt(DBAdapter.COL_TITLE);
-				String favColour = cursor.getString(DBAdapter.COL_EXTERNALLINK);
-				String forth = cursor.getString(DBAdapter.COL_DESCRIPTION);
-				String five = cursor.getString(DBAdapter.COL_EXPIRATIONDATE);
-				String six = cursor.getString(DBAdapter.COL_OPPORTUNITYTYPE);
-				String seven = cursor.getString(DBAdapter.COL_OPPORTUNITYTYPEOTHER);
-				String eight = cursor.getString(DBAdapter.COL_TIMEFRAME);
-				String nine = cursor.getString(DBAdapter.COL_TIMEFRAMEOTHER);
-				String ten = cursor.getString(DBAdapter.COL_TARGETGROUP);
-				String eleven = cursor.getString(DBAdapter.COL_TARGETGROUPOTHER);
-				String twelve = cursor.getString(DBAdapter.COL_CREATIVECOMPONENT);
-				String thirteen = cursor.getString(DBAdapter.COL_CREATIVECOMPONENTOTHER);
-				String forteen = cursor.getString(DBAdapter.COL_STORYTITLE);
-				String fifteen = cursor.getString(DBAdapter.COL_STORYEXTERNALLINK);
-				String sixteen = cursor.getString(DBAdapter.COL_STORYDESCRIPTION);
-				String seventeen = cursor.getString(DBAdapter.COL_STORYPHOTO);
-				String eightteen = cursor.getString(DBAdapter.COL_STORYCAMPUS);
-				String nineteen = cursor.getString(DBAdapter.COL_SPONSORPROGRAM);
-				String twenty = cursor.getString(DBAdapter.COL_SPONSORCOLLEGE);
-				String twentyone = cursor.getString(DBAdapter.COL_SPONSOROTHER);
-				String twentytwo = cursor.getString(DBAdapter.COL_PARTICIPATIONINSTRUCTIONS);
-				String twentythree = cursor.getString(DBAdapter.COL_EMAIL);
-				String twentyfour = cursor.getString(DBAdapter.COL_PHONE);
-				String twentyfive = cursor.getString(DBAdapter.COL_PHONEEXT);
-				String twentysix = cursor.getString(DBAdapter.COL_NAME);
-				String twentyseven = cursor.getString(DBAdapter.COL_SUBMITTEDEMAIL);
-				String twentyeight = cursor.getString(DBAdapter.COL_STATUS);
-				String twentynine = cursor.getString(DBAdapter.COL_AUTOARCHIVEDATE);
-				String thirty = cursor.getString(DBAdapter.COL_USERADED);
-				String thirtyone = cursor.getString(DBAdapter.COL_USER2ADDED);
-				String thirtytwo = cursor.getString(DBAdapter.COL_DATEADDED);
-				String thirtythree = cursor.getString(DBAdapter.COL_DATEDELETED);
-				String thirtyfour = cursor.getString(DBAdapter.COL_DATEUPDATED);
+				String favColour = cursor.getString(DBAdapter.COL_FAVCOLOUR);
+				String forth = cursor.getString(DBAdapter.COL_forth);
+				String five = cursor.getString(DBAdapter.COL_5);
+				String six = cursor.getString(DBAdapter.COL_6);
+				String seven = cursor.getString(DBAdapter.COL_7);
+				String eight = cursor.getString(DBAdapter.COL_8);
+				String nine = cursor.getString(DBAdapter.COL_9);
+				String ten = cursor.getString(DBAdapter.COL_10);
+				String eleven = cursor.getString(DBAdapter.COL_11);
+				String twelve = cursor.getString(DBAdapter.COL_12);
+				String thirteen = cursor.getString(DBAdapter.COL_13);
+				String forteen = cursor.getString(DBAdapter.COL_14);
+				String fifteen = cursor.getString(DBAdapter.COL_15);
+				String sixteen = cursor.getString(DBAdapter.COL_16);
+				String seventeen = cursor.getString(DBAdapter.COL_17);
+				String eightteen = cursor.getString(DBAdapter.COL_18);
+				String nineteen = cursor.getString(DBAdapter.COL_19);
+				String twenty = cursor.getString(DBAdapter.COL_20);
+				String twentyone = cursor.getString(DBAdapter.COL_21);
+				String twentytwo = cursor.getString(DBAdapter.COL_22);
+				String twentythree = cursor.getString(DBAdapter.COL_23);
+				String twentyfour = cursor.getString(DBAdapter.COL_24);
+				String twentyfive = cursor.getString(DBAdapter.COL_25);
+				String twentysix = cursor.getString(DBAdapter.COL_26);
+				String twentyseven = cursor.getString(DBAdapter.COL_27);
+				String twentyeight = cursor.getString(DBAdapter.COL_28);
+				String twentynine = cursor.getString(DBAdapter.COL_29);
+				String thirty = cursor.getString(DBAdapter.COL_30);
+				String thirtyone = cursor.getString(DBAdapter.COL_31);
+				String thirtytwo = cursor.getString(DBAdapter.COL_32);
+				String thirtythree = cursor.getString(DBAdapter.COL_33);
+				String thirtyfour = cursor.getString(DBAdapter.COL_34);
 
 				// String = cursor.getString(DBAdapter.COL_8);
 
@@ -455,4 +465,55 @@ public class SearchPage extends Activity {
 	 */
 
 }
+
+//	private class LongOperation extends AsyncTask<String, Void, String> {
+//
+//        @Override
+//        protected String doInBackground(String... params) {
+////            openDB();
+//            return "Executed";
+//        }
+//
+//        @Override
+//        protected void onPostExecute(String result) {
+//
+//        	View b = findViewById(R.id.button1);
+//        	b.setVisibility(View.VISIBLE);
+////            EditText editText = (EditText)findViewById(R.id.editText1);
+////			editText.setText("Executed", TextView.BufferType.EDITABLE);
+//            // might want to change "executed" for the returned string passed
+//            // into onPostExecute() but that is upto you
+//        }
+//
+//        @Override
+//        protected void onPreExecute() {
+//        }
+//
+//        @Override
+//        protected void onProgressUpdate(Void... values) {}
+//    }
+//	
+	
+	 private class LongOperation extends AsyncTask<String, Void, String> {
+
+	        @Override
+	        protected String doInBackground(String... params) {
+	            openDB();
+	            return "Executed";
+	        }
+
+	        @Override
+	        protected void onPostExecute(String result) {
+	            TextView txt = (TextView) findViewById(R.id.autoCompleteTextView1);
+	            txt.setText("Executed"); // txt.setText(result);
+	            // might want to change "executed" for the returned string passed
+	            // into onPostExecute() but that is upto you
+	        }
+
+	        @Override
+	        protected void onPreExecute() {}
+
+	        @Override
+	        protected void onProgressUpdate(Void... values) {}
+	    }
 }
