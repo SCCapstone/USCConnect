@@ -348,7 +348,6 @@ public class SearchPage extends Activity {
 		displayRecordSet(cursor);
 	}
 
-	// Display an entire record set to the screen.
 	private void displayRecordSet(Cursor cursor) {
 		String message = "";
 		// populate the message from the cursor
@@ -360,38 +359,38 @@ public class SearchPage extends Activity {
 				int id = cursor.getInt(DBAdapter.COL_ROWID);
 				String name = cursor.getString(DBAdapter.COL_ID);
 				int studentNumber = cursor.getInt(DBAdapter.COL_TITLE);
-				String favColour = cursor.getString(DBAdapter.COL_FAVCOLOUR);
-				String forth = cursor.getString(DBAdapter.COL_forth);
-				String five = cursor.getString(DBAdapter.COL_5);
-				String six = cursor.getString(DBAdapter.COL_6);
-				String seven = cursor.getString(DBAdapter.COL_7);
-				String eight = cursor.getString(DBAdapter.COL_8);
-				String nine = cursor.getString(DBAdapter.COL_9);
-				String ten = cursor.getString(DBAdapter.COL_10);
-				String eleven = cursor.getString(DBAdapter.COL_11);
-				String twelve = cursor.getString(DBAdapter.COL_12);
-				String thirteen = cursor.getString(DBAdapter.COL_13);
-				String forteen = cursor.getString(DBAdapter.COL_14);
-				String fifteen = cursor.getString(DBAdapter.COL_15);
-				String sixteen = cursor.getString(DBAdapter.COL_16);
-				String seventeen = cursor.getString(DBAdapter.COL_17);
-				String eightteen = cursor.getString(DBAdapter.COL_18);
-				String nineteen = cursor.getString(DBAdapter.COL_19);
-				String twenty = cursor.getString(DBAdapter.COL_20);
-				String twentyone = cursor.getString(DBAdapter.COL_21);
-				String twentytwo = cursor.getString(DBAdapter.COL_22);
-				String twentythree = cursor.getString(DBAdapter.COL_23);
-				String twentyfour = cursor.getString(DBAdapter.COL_24);
-				String twentyfive = cursor.getString(DBAdapter.COL_25);
-				String twentysix = cursor.getString(DBAdapter.COL_26);
-				String twentyseven = cursor.getString(DBAdapter.COL_27);
-				String twentyeight = cursor.getString(DBAdapter.COL_28);
-				String twentynine = cursor.getString(DBAdapter.COL_29);
-				String thirty = cursor.getString(DBAdapter.COL_30);
-				String thirtyone = cursor.getString(DBAdapter.COL_31);
-				String thirtytwo = cursor.getString(DBAdapter.COL_32);
-				String thirtythree = cursor.getString(DBAdapter.COL_33);
-				String thirtyfour = cursor.getString(DBAdapter.COL_34);
+				String favColour = cursor.getString(DBAdapter.COL_EXTERNALLINK);
+				String forth = cursor.getString(DBAdapter.COL_DESCRIPTION);
+				String five = cursor.getString(DBAdapter.COL_EXPIRATIONDATE);
+				String six = cursor.getString(DBAdapter.COL_OPPORTUNITYTYPE);
+				String seven = cursor.getString(DBAdapter.COL_OPPORTUNITYTYPEOTHER);
+				String eight = cursor.getString(DBAdapter.COL_TIMEFRAME);
+				String nine = cursor.getString(DBAdapter.COL_TIMEFRAMEOTHER);
+				String ten = cursor.getString(DBAdapter.COL_TARGETGROUP);
+				String eleven = cursor.getString(DBAdapter.COL_TARGETGROUPOTHER);
+				String twelve = cursor.getString(DBAdapter.COL_CREATIVECOMPONENT);
+				String thirteen = cursor.getString(DBAdapter.COL_CREATIVECOMPONENTOTHER);
+				String forteen = cursor.getString(DBAdapter.COL_STORYTITLE);
+				String fifteen = cursor.getString(DBAdapter.COL_STORYEXTERNALLINK);
+				String sixteen = cursor.getString(DBAdapter.COL_STORYDESCRIPTION);
+				String seventeen = cursor.getString(DBAdapter.COL_STORYPHOTO);
+				String eightteen = cursor.getString(DBAdapter.COL_STORYCAMPUS);
+				String nineteen = cursor.getString(DBAdapter.COL_SPONSORPROGRAM);
+				String twenty = cursor.getString(DBAdapter.COL_SPONSORCOLLEGE);
+				String twentyone = cursor.getString(DBAdapter.COL_SPONSOROTHER);
+				String twentytwo = cursor.getString(DBAdapter.COL_PARTICIPATIONINSTRUCTIONS);
+				String twentythree = cursor.getString(DBAdapter.COL_EMAIL);
+				String twentyfour = cursor.getString(DBAdapter.COL_PHONE);
+				String twentyfive = cursor.getString(DBAdapter.COL_PHONEEXT);
+				String twentysix = cursor.getString(DBAdapter.COL_NAME);
+				String twentyseven = cursor.getString(DBAdapter.COL_SUBMITTEDEMAIL);
+				String twentyeight = cursor.getString(DBAdapter.COL_STATUS);
+				String twentynine = cursor.getString(DBAdapter.COL_AUTOARCHIVEDATE);
+				String thirty = cursor.getString(DBAdapter.COL_USERADED);
+				String thirtyone = cursor.getString(DBAdapter.COL_USER2ADDED);
+				String thirtytwo = cursor.getString(DBAdapter.COL_DATEADDED);
+				String thirtythree = cursor.getString(DBAdapter.COL_DATEDELETED);
+				String thirtyfour = cursor.getString(DBAdapter.COL_DATEUPDATED);
 
 				// String = cursor.getString(DBAdapter.COL_8);
 
