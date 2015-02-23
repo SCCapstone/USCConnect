@@ -37,6 +37,7 @@ public class SearchPage extends Activity {
 
 	DBAdapter myDb;
 	String endl = "\n";
+	boolean backButtonFlag = true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -493,7 +494,7 @@ public class SearchPage extends Activity {
 //    }
 //	
 	
- private class LongOperation extends AsyncTask<String, Void, String> {
+	 private class LongOperation extends AsyncTask<String, Void, String> {
 
 	        @Override
 	        protected String doInBackground(String... params) {
@@ -506,14 +507,14 @@ public class SearchPage extends Activity {
 	        protected void onPostExecute(String result) {
 	            TextView txt = (TextView) findViewById(R.id.autoCompleteTextView1);
 	            txt.setText("Executed"); // txt.setText(result);
-	           
+	            backButtonFlag = true;
 	            // might want to change "executed" for the returned string passed
 	            // into onPostExecute() but that is upto you
 	        }
 
 	        @Override
 	        protected void onPreExecute() {
-	        	
+	        	backButtonFlag = false;
 	        }
 
 	        @Override
@@ -522,7 +523,8 @@ public class SearchPage extends Activity {
 	 
 	 @Override
 	 public void onBackPressed() { 
-		 
+		 if (backButtonFlag)
+			 super.onBackPressed();
 //		 moveTaskToBack(true);
 //		 finish();
 //		 Intent myIntent = new Intent(null, SearchPage.class);
