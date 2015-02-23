@@ -493,11 +493,12 @@ public class SearchPage extends Activity {
 //    }
 //	
 	
-	 private class LongOperation extends AsyncTask<String, Void, String> {
+ private class LongOperation extends AsyncTask<String, Void, String> {
 
 	        @Override
 	        protected String doInBackground(String... params) {
 	            openDB();
+	            
 	            return "Executed";
 	        }
 
@@ -505,14 +506,26 @@ public class SearchPage extends Activity {
 	        protected void onPostExecute(String result) {
 	            TextView txt = (TextView) findViewById(R.id.autoCompleteTextView1);
 	            txt.setText("Executed"); // txt.setText(result);
+	           
 	            // might want to change "executed" for the returned string passed
 	            // into onPostExecute() but that is upto you
 	        }
 
 	        @Override
-	        protected void onPreExecute() {}
+	        protected void onPreExecute() {
+	        	
+	        }
 
 	        @Override
 	        protected void onProgressUpdate(Void... values) {}
 	    }
+	 
+	 @Override
+	 public void onBackPressed() { 
+		 
+//		 moveTaskToBack(true);
+//		 finish();
+//		 Intent myIntent = new Intent(null, SearchPage.class);
+// 		 startActivityForResult(myIntent, 0);
+	}
 }
