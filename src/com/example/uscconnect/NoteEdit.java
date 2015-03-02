@@ -55,7 +55,8 @@ public class NoteEdit extends Activity {
 		
         confirmButton.setOnClickListener(new View.OnClickListener() {
 
-        	public void onClick(View view) {
+        	@Override
+			public void onClick(View view) {
         	    setResult(RESULT_OK);
         	    finish();
         	}

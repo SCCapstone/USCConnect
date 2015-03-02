@@ -4,8 +4,6 @@ package com.example.uscconnect;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
-import com.parse.Parse;
-
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;

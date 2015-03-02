@@ -1,6 +1,7 @@
 package com.example.uscconnect;
 
 import java.io.BufferedReader;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -27,23 +28,38 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.TextView.OnEditorActionListener;
 
 public class SearchPage extends Activity {
-
+	
+	String selectedTimeFrame = "";
+	String selectedType = "";
+	String resString = "";
 	DBAdapter myDb;
 	String endl = "\n";
 	boolean backButtonFlag = true;
+	private String[] arraySpinner;
 
+	
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search_page);
 
+		setKeyboard();
+		setTimeFrameDropList();
+		setOpportunitiesDropList();
 //		openDB();
 		new LongOperation().execute("");
 
@@ -53,7 +69,8 @@ public class SearchPage extends Activity {
 		//editText.setOnEditorActionListener(){
 
 			editText.setOnEditorActionListener(new OnEditorActionListener() {
-			    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+			    @Override
+				public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 			        boolean handled = false;
 			        if (actionId == EditorInfo.IME_ACTION_GO) {
 			        	EditText Player = (EditText) findViewById(R.id.autoCompleteTextView1);
@@ -79,6 +96,96 @@ public class SearchPage extends Activity {
 	private void OnClickGO() {
 		
 	}
+	
+	
+	private void setOpportunitiesDropList() {
+		// TODO Auto-generated method stub
+		this.arraySpinner = new String[] { 
+				"Community Service/Engagement",
+				"National/Domestic Experience",
+				"International Experience",
+				"Professional Work-based Experience", 
+				"Research/Inquiry", 
+				"Residential Living and Learning Community",
+				"Student Organization",
+				"Leadership Program",
+				"Annual or Regular Special Event",
+				"Credit Bearing Course",
+				"Includes integrative learning/creative component",
+				"Other"
+				};
+		Spinner s = (Spinner) findViewById(R.id.Spinner01);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_spinner_item, arraySpinner);
+		s.setAdapter(adapter);
+		s.setOnItemSelectedListener(new OnItemSelectedListener() {
+	
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,int position, long id) {
+				selectedType = parent.getItemAtPosition(position).toString();						
+				Toast.makeText(parent.getContext(),
+						"\"" + selectedType + "\" was selected.",
+						Toast.LENGTH_SHORT).show();
+			}
+	
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {}
+		});
+		
+	}
+	
+	
+	
+	private void setKeyboard() {
+		EditText editText =(EditText)findViewById(R.id.editText1); 
+		editText.setOnEditorActionListener(new TextView.OnEditorActionListener(){  
+
+		    @Override 
+		    public boolean onEditorAction(TextView arg0, int arg1, KeyEvent arg2) { 
+		        if(arg1 == EditorInfo.IME_ACTION_SEARCH)  
+		        { 
+		            // search pressed and perform your functionality.
+		        }
+		        return false; 
+		    }
+
+		});
+		
+	}
+	
+	
+	private void setTimeFrameDropList() {
+		// TODO Auto-generated method stub
+		this.arraySpinner = new String[] { 
+				"Fall Semester",
+				"Spring Semester",
+				"Maymester",
+				"Summer", 
+				"Spring Break", 
+				"Ongoing"
+				};
+		Spinner s = (Spinner) findViewById(R.id.spinner1);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_spinner_item, arraySpinner);
+		s.setAdapter(adapter);
+		s.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,int position, long id) {
+				selectedTimeFrame = parent.getItemAtPosition(position).toString();						
+				Toast.makeText(parent.getContext(),
+						"\"" + selectedTimeFrame + "\" was selected.",
+						Toast.LENGTH_SHORT).show();
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {}
+		});
+	}
+	
+	
+	
+	
 
 	void openDB() {
 //		LinearLayout linlaHeaderProgress = (LinearLayout) findViewById(R.id.linlaHeaderProgress);
@@ -99,7 +206,7 @@ public class SearchPage extends Activity {
 			try {
 				reader = new BufferedReader(new InputStreamReader(getAssets().open(
 						"uscconnect_opportunities_1414761945.csv"), "UTF-8"));
-				// displayText("I've started ot open.");
+				// //displayText("I've started ot open.");
 	
 				// do reading, usually loop until end of file reading
 				String mLine = reader.readLine();
@@ -183,10 +290,10 @@ public class SearchPage extends Activity {
 	//					);
 					//}
 	//				for (String retval: s){
-	//					displayText(s[s.length-1]);
+	//					//displayText(s[s.length-1]);
 	//					//System.out.println(retval);
 	//			      }
-	//				displayText(mLine);
+	//				//displayText(mLine);
 					mLine = reader.readLine();
 				}
 			} catch (IOException e) {
@@ -208,13 +315,13 @@ public class SearchPage extends Activity {
 		myDb.close();
 	}
 
-	private void displayText(String message) {
+	/*private void //displayText(String message) {
 		TextView textView = (TextView) findViewById(R.id.textDisplay);
 		textView.setText(message);
 //		textView.setText(Html.fromHtml("blah blah <a href=\"http://www.sc.edu/uscconnect/participate/opport_detail.php?oid=630\">some text to be linkified</a> blah blah"));
 
 		textView.setKeyListener(null);
-	}
+	}*/
 	
 	public void downoladFile(){
 		URL url = null;
@@ -285,7 +392,7 @@ public class SearchPage extends Activity {
 			fileOutput.write(buffer, 0, bufferLength);
 			//add up the size so we know how much is downloaded
 			downloadedSize += bufferLength;
-			int progress=(int)(downloadedSize*100/totalSize);
+			int progress=(downloadedSize*100/totalSize);
 			//this is where you would do something to report the prgress, like this maybe
 
 			//updateProgress(downloadedSize, totalSize);
@@ -323,7 +430,7 @@ public class SearchPage extends Activity {
 	}
 	
 	public void onClick_AddRecord(View v) {
-		displayText("Clicked add record!");
+		////displayText("Clicked add record!");
 
 		long newId = myDb.insertRow("Jenny", "5559", "Green", "forth", "five",
 				"six", "seven", "eight", "nine", "ten", "a11", "a12", "a13",
@@ -338,12 +445,12 @@ public class SearchPage extends Activity {
 	}
 
 	public void onClick_ClearAll(View v) {
-		displayText("Clicked clear all!");
+		//displayText("Clicked clear all!");
 		myDb.deleteAll();
 	}
 
 	public void onClick_DisplayRecords(View v) {
-		displayText("Clicked display record!");
+		//displayText("Clicked display record!");
 
 		Cursor cursor = myDb.getAllRows();
 		displayRecordSet(cursor);
@@ -420,7 +527,7 @@ public class SearchPage extends Activity {
 		// Close the cursor to avoid a resource leak.
 		cursor.close();
 
-		displayText(message);
+		//displayText(message);
 	}
 
 	private void displayRecordSet2(Cursor cursor, String searchKeyword) {
@@ -448,7 +555,7 @@ public class SearchPage extends Activity {
 		// Close the cursor to avoid a resource leak.
 		cursor.close();
 
-		displayText(message);
+		//displayText(message);
 	
 	
 	/*
@@ -520,7 +627,7 @@ public class SearchPage extends Activity {
 	        @Override
 	        protected void onProgressUpdate(Void... values) {}
 	    }
-	 
+	 //
 	 @Override
 	 public void onBackPressed() { 
 		 if (backButtonFlag)

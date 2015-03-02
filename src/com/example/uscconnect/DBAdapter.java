@@ -16,10 +16,6 @@
 // TODO: Change the package to match your project.
 package com.example.uscconnect;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;

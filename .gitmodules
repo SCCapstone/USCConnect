@@ -1,0 +1,3 @@
+[submodule "USCConnect.wiki"]
+	path = USCConnect.wiki
+	url = ../USCConnect.wiki.git
