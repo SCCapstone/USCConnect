@@ -16,7 +16,8 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" 
-        android:background="@drawable/tailfeather">
+        android:background="@drawable/tailfeather"
+        android:backupAgent="MyBackupAgent">
         <activity
             android:name=".MainPage"
             android:label="@string/app_name" 
@@ -45,6 +46,8 @@
         <activity  
             android:name=".NoteEdit" >
         </activity>
+        <meta-data android:name="com.google.android.backup.api_key"
+            android:value="AEdPqrEAAAAIk34Fg6h6gVLnxsOl5c0TVz2wVVvPDqrSByBCoQ" />
     </application>
 
 </manifest>
