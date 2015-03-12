@@ -79,5 +79,13 @@ proguard/
 # Log Files
 *.log
 
+#Eclipse files
+.settings/
+.project
+.classpath
+.buildpath
+_classpath
+_project
+
 
 
