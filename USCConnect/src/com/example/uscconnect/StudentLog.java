@@ -16,14 +16,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
-
+import android.app.backup.BackupManager;
 public class StudentLog extends ListActivity {
 	  private static final int ACTIVITY_CREATE=0;
 	    private static final int ACTIVITY_EDIT=1;
 	    
 	    private static final int INSERT_ID = Menu.FIRST;
 	    private static final int DELETE_ID = Menu.FIRST + 1;
-	    
+	    BackupManager bm = new BackupManager(this);
 	    
 	    private NotesDbAdapter mDbHelper;
 	    
@@ -40,6 +40,7 @@ public class StudentLog extends ListActivity {
 	        	@Override
 	        	public void onClick(View view) {
 	        		createNote();
+	        		bm.dataChanged();
 	        	}
 	        });
 	        
@@ -85,10 +86,12 @@ public class StudentLog extends ListActivity {
 	        switch(item.getItemId()) {
 	        case INSERT_ID:
 	            createNote();
+	            bm.dataChanged();
 	            return true;
 	        case DELETE_ID:
 	            mDbHelper.deleteNote(getListView().getSelectedItemId());
 	            fillData();
+	            bm.dataChanged();
 	            return true;
 	        }
 	       
