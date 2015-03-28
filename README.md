@@ -20,6 +20,21 @@ The "GLD Application" page opens a browser and direct the user to the school's G
 The "About USC Connect" page has a clickable youtube video at the top of the screen, followed by a small paragraph of text, with links to USC Connect's facebook, instagram, and twitter account pages.
   
 ## Special Testing Instructions
+1: The app includes a backup feature for the student log; however, the backup feature will not backup the log right away. Either keep the app on your phone for a few hours after creating a log before deleting, or
+   you can run apb (Android Debug Bridge) commands from a command window. You also need to make sure that you go to your android phone settings and enable backup and restore features.
+   APB How To:
+	a. Download the android [sdk](http://developer.android.com/sdk/installing/index.html) on to your pc and navigate to the platform-tools sub-folder in the sdk folder.
+        b. Open up a command window in this sub-folder and type in the following (no quotes) after installing the app and making sure the phone is connected to the pc:
+           
+           "apb shell bmgr backup com.example.uscconnect"
+           "apb shell bmgr run"
+
+        C. Now uninstall and reinstall the app and your student log should have been backed up and restored.
+        E. Additional Info:
+           [here](http://developer.android.com/tools/help/adb.html)
+           [here](http://developer.android.com/tools/help/bmgr.html)
+           [here](http://androidcookbook.com/Recipe.seam;jsessionid=C3FDE2B5FC4813FAD435C4D15FC76AAA?recipeId=2968)
+           
 
 ## Issues
 
