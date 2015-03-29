@@ -1,11 +1,13 @@
 
 
-package com.example.search;
+package com.example.USCconnect;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import com.example.search.NoteEdit;
+import com.example.USCconnect.NoteEdit;
+import com.example.search.R;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;

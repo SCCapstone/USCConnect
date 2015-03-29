@@ -1,8 +1,10 @@
-package com.example.search;
+package com.example.USCconnect;
 
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+
+import com.example.search.R;
 
 import android.app.Activity;
 import android.app.Dialog;

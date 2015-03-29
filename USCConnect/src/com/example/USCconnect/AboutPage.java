@@ -1,4 +1,6 @@
-package com.example.search;
+package com.example.USCconnect;
+
+import com.example.search.R;
 
 import android.app.Activity;
 import android.content.Intent;

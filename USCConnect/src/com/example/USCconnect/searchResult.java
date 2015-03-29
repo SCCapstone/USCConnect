@@ -1,7 +1,10 @@
-package com.example.search;
+package com.example.USCconnect;
 
 
 import java.util.ArrayList;
+
+import com.example.search.R;
+
 import android.app.AlertDialog;
 
 

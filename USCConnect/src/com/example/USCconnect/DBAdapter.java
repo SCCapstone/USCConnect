@@ -1,4 +1,4 @@
-package com.example.search;
+package com.example.USCconnect;
 
 /*
  * Copyright (C) 2008 Google Inc.

@@ -15,7 +15,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainPage"
+            android:name="com.example.USCconnect.MainPage"
 			android:screenOrientation="portrait"   
             android:label="@string/app_name" >
             <intent-filter>
@@ -24,29 +24,29 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SearchPage"
+            android:name="com.example.USCconnect.SearchPage"
             android:label="Search"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".StudentLog"
+            android:name="com.example.USCconnect.StudentLog"
             android:label="title_activity_student_log"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".searchResult"
+            android:name="com.example.USCconnect.searchResult"
             android:label="Search"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".AboutPage"
+            android:name="com.example.USCconnect.AboutPage"
             android:label="title_activity_about_page"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".NoteEdit" >
+        <activity android:name="com.example.USCconnect.NoteEdit" >
         </activity>
         <activity
-            android:name=".Display"
+            android:name="com.example.USCconnect.Display"
             android:label="title_activity_display" >
         </activity>
     </application>
