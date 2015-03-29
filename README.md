@@ -3,7 +3,7 @@ Android app for [USC Connect](http://www.sc.edu/uscconnect/).
 
 ## Using the App
 
-To begin using the app, [download](http://cse.sc.edu/~ammer/USCConnect.apk) the .apk and install.
+To begin using the app, [download](https://github.com/SCCapstone/USCConnect/blob/master/USCConnect.apk?raw=true) the .apk and install.
 
 Once the app is running, you will be at the main page with four buttons:
 * "Search Opportunities"
