@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.USCconnect;
-
-import com.example.search.R;
+package com.example.uscconnect;
 
 import android.app.Activity;
 import android.database.Cursor;

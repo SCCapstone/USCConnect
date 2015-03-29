@@ -1,7 +1,20 @@
-package com.example.USCconnect;
+/*
+ * Copyright (C) 2008 Google Inc.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+package com.example.uscconnect;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -25,7 +38,6 @@ public class NotesDbAdapter {
 
     public static final String KEY_TITLE = "title";
     public static final String KEY_BODY = "body";
-   // public static final String CREATION_DATE = "13/1/00";
     public static final String KEY_ROWID = "_id";
 
     private static final String TAG = "NotesDbAdapter";
@@ -109,13 +121,7 @@ public class NotesDbAdapter {
         ContentValues initialValues = new ContentValues();
         initialValues.put(KEY_TITLE, title);
         initialValues.put(KEY_BODY, body);
-        
-        
-       /* Calendar c = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("MMM/dd/yyyy");
-        String formattedDate = df.format(c.getTime());
-   
-        initialValues.put(CREATION_DATE, formattedDate);*/
+
         return mDb.insert(DATABASE_TABLE, null, initialValues);
     }
 

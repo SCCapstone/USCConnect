@@ -1,8 +1,6 @@
-package com.example.USCconnect;
+package com.example.uscconnect;
 
 import java.util.ArrayList;
-
-import com.example.search.R;
 
 import android.app.Activity;
 import android.content.Context;

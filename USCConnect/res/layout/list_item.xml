@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="4dp"
-    tools:context=".com.example.search.SearchActivity" >
+    tools:context=".com.example.uscconnect.SearchActivity" >
 
     <TextView
         android:id="@+id/textName"

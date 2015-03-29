@@ -1,54 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.search"
+    package="com.example.uscconnect"
     android:versionCode="1"
     android:versionName="1.0" >
-    
-    <uses-permission android:name="android.permission.INTERNET" /> 
+
     <uses-sdk
         android:minSdkVersion="15"
         android:targetSdkVersion="21" />
+    
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme" 
+        android:background="@drawable/tailfeather"
+        android:backupAgent="MyBackupAgent">
         <activity
-            android:name="com.example.USCconnect.MainPage"
-			android:screenOrientation="portrait"   
-            android:label="@string/app_name" >
+            android:name=".MainPage"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.USCconnect.SearchPage"
+            android:name=".SearchPage"
             android:label="Search"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.example.USCconnect.StudentLog"
-            android:label="title_activity_student_log"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="com.example.USCconnect.searchResult"
+            android:name=".searchResult"
             android:label="Search"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.example.USCconnect.AboutPage"
-            android:label="title_activity_about_page"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity android:name="com.example.USCconnect.NoteEdit" >
+            android:name=".StudentLog"
+            android:label="Student Log" 
+            android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name="com.example.USCconnect.Display"
-            android:label="title_activity_display" >
+            android:name=".AboutPage"
+            android:label="About Page"
+            android:screenOrientation="portrait" >
         </activity>
+        <activity  
+            android:name=".NoteEdit" >
+        </activity>
+        <activity
+            android:name=".Display"
+            android:label="Display" >
+        </activity>
+        <meta-data android:name="com.google.android.backup.api_key"
+            android:value="AEdPqrEAAAAIk34Fg6h6gVLnxsOl5c0TVz2wVVvPDqrSByBCoQ" />
     </application>
 
 </manifest>

@@ -1,5 +1,3 @@
-package com.example.USCconnect;
-
 /*
  * Copyright (C) 2008 Google Inc.
  * 
@@ -16,6 +14,7 @@ package com.example.USCconnect;
  * the License.
  */
 // TODO: Change the package to match your project.
+package com.example.uscconnect;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -426,16 +425,6 @@ public class DBAdapter {
 		return crs;
 //		db.execSQL("SELECT * FROM " + DATABASE_TABLE +" WHERE " + COL_8 + " LIKE '%gh%';");	
 	}
-	
-	public Cursor getDetails(String id) {
-		// TODO Auto-generated method stub
-		Cursor crs =db.rawQuery("SELECT * FROM "
-				+ DATABASE_TABLE +" WHERE " 
-				+ KEY_ID + " LIKE '%" + id + "%';", null);
-		return crs;
-//		db.execSQL("SELECT * FROM " + DATABASE_TABLE +" WHERE " + COL_8 + " LIKE '%gh%';");	
-	}
-	
 	public static void insertMultipleRows(String query) {
 		db.execSQL(query);			
 	}

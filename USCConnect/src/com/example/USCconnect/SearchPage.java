@@ -1,11 +1,13 @@
-package com.example.USCconnect;
+package com.example.uscconnect;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -14,10 +16,13 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
-import com.example.search.R;
-
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -45,13 +50,24 @@ public class SearchPage extends ActionBarActivity {
 	private String[] arraySpinner;
 	final String[] data ={"one","two","three"};
 	
+	private DrawerLayout mDrawerLayout;
+	private ListView mDrawerList;
+	private ActionBarDrawerToggle mDrawerToggle;
 
+	private CharSequence mDrawerTitle;
+	private CharSequence mTitle;
+	CustomDrawerAdapter adapter;
+
+	List<DrawerItem> dataList;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        
+        addDrawerItems();
         new LongOperation().execute("");
+        
 		
 //        MainActivity m = new MainActivity();
 //        m.onCreateDrawer();
@@ -92,6 +108,54 @@ public class SearchPage extends ActionBarActivity {
 		setTimeFrameDropList();
 		setOpportunitiesDropList();
 
+	}
+
+
+	private void addDrawerItems() 
+	{
+		dataList = new ArrayList<DrawerItem>();
+		mTitle = mDrawerTitle = getTitle();
+		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+		mDrawerList = (ListView) findViewById(R.id.left_drawer);
+
+		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
+
+		// Add Drawer Item to dataList
+		dataList.add(new DrawerItem("Main Menu", R.drawable.ic_action_good));
+		dataList.add(new DrawerItem("Personal Log", R.drawable.ic_drawer));
+		dataList.add(new DrawerItem("GLD Application", R.drawable.ic_action_good));
+		dataList.add(new DrawerItem("About Us", R.drawable.ic_action_about));
+
+		
+
+		adapter = new CustomDrawerAdapter(this, R.layout.custom_drawer_item,
+				dataList);
+
+		mDrawerList.setAdapter(adapter);
+		
+		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setHomeButtonEnabled(true);
+
+		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
+				R.drawable.ic_drawer, R.string.drawer_open,
+				R.string.drawer_close) {
+			public void onDrawerClosed(View view) {
+				getActionBar().setTitle(mTitle);
+				invalidateOptionsMenu(); // creates call to
+											// onPrepareOptionsMenu()
+			}
+
+			public void onDrawerOpened(View drawerView) {
+				getActionBar().setTitle(mDrawerTitle);
+				invalidateOptionsMenu(); // creates call to
+											// onPrepareOptionsMenu()
+			}
+		};
+
+		mDrawerLayout.setDrawerListener(mDrawerToggle);
+		
 	}
 
 
@@ -187,19 +251,6 @@ public class SearchPage extends ActionBarActivity {
 		getMenuInflater().inflate(R.menu.search, menu);
 		return true;
 	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-	
 	
 	private void parseFile() {
 //		LinearLayout linlaHeaderProgress = (LinearLayout) findViewById(R.id.linlaHeaderProgress);
@@ -315,4 +366,89 @@ public class SearchPage extends ActionBarActivity {
         protected void onProgressUpdate(Void... values) {}
     }
 	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		
+		if (mDrawerToggle.onOptionsItemSelected(item))
+		{
+			return true;
+		}
+		return super.onOptionsItemSelected(item);	
+	}
+	
+	public void SelectItem(int possition) {
+
+		switch (possition) {
+		case 0:
+			Intent myIntent = new Intent(this,
+					MainPage.class);
+			startActivityForResult(myIntent, 0);
+			break;
+		case 1:
+			myIntent = new Intent(this,
+					StudentLog.class);
+			startActivityForResult(myIntent, 0);
+			
+			break;
+			
+		case 2:
+			startActivity(new Intent(Intent.ACTION_VIEW, Uri
+					.parse("https://www.sc.edu/uscconnect/gldapplication")));
+
+			
+			break;
+			
+		case 3:
+
+			myIntent = new Intent(this,
+					AboutPage.class);
+			startActivityForResult(myIntent, 0);
+			break;
+		default:
+			break;
+		}
+
+		mDrawerList.setItemChecked(possition, true);
+		setTitle(dataList.get(possition).getItemName());
+		mDrawerLayout.closeDrawer(mDrawerList);
+
+	}
+
+	@Override
+	public void setTitle(CharSequence title) {
+		mTitle = title;
+		getActionBar().setTitle(mTitle);
+	}
+
+	@Override
+	protected void onPostCreate(Bundle savedInstanceState) {
+		super.onPostCreate(savedInstanceState);
+		// Sync the toggle state after onRestoreInstanceState has occurred.
+		mDrawerToggle.syncState();
+	}
+
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		super.onConfigurationChanged(newConfig);
+		// Pass any configuration change to the drawer toggles
+		mDrawerToggle.onConfigurationChanged(newConfig);
+	}
+
+
+	
+	private class DrawerItemClickListener implements ListView.OnItemClickListener {
+           @Override
+           public void onItemClick(AdapterView<?> parent, View view, int position, long id) 
+           {
+	         SelectItem(position);
+
+           }
+}
 }

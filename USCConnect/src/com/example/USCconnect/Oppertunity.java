@@ -1,4 +1,4 @@
-package com.example.USCconnect;
+package com.example.uscconnect;
 
 public class Oppertunity {
 	private String title;
