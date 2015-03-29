@@ -79,7 +79,7 @@ public class searchResult extends Activity {
 		
 		Cursor c = null;
 		if (searchKeyword.length() != 0){
-			c = SearchPage.myDb.test(searchKeyword);
+			c = SearchPage.myDb.doTheSearch(searchKeyword, timeFrame, typeOfOppertunity);
 			setUpSearchResults(c, searchKeyword);
 		}
 	}
