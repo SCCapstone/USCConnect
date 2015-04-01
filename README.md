@@ -11,7 +11,7 @@ Once the app is running, you will be at the main page with four buttons:
 * "GLD Application"
 * "About USC Connect"
 
-The "Search Opportunities"
+The "Search Opportunities" should open up to an activity page with a find experiences search box, two drop downboxes for extra criteria, and a search button. After the user presses search, the button will take you to the next page displaying all the results in a clickable list that, when clicked, will display extra details about the events.
 
 The "Student Log" page has an "Add" button that then lets the user input text into a title and body field, and then can click "Save" to save the text. Each entry is clickable to view the text that was previously entered.
 
