@@ -3,6 +3,7 @@ package com.example.uscconnect;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 
 import android.app.AlertDialog;
@@ -37,6 +38,8 @@ public class searchResult extends Activity {
 	 String timeFrame ;
 	 String typeOfOppertunity;
 	 String searchKeyword;
+	 String currentOppertunityTitle;
+	 String currentOppertunityBody;
 	 
 	 AlertDialog alertDialog; 
 	 
@@ -63,7 +66,16 @@ public class searchResult extends Activity {
 				 , new DialogInterface.OnClickListener() {
 
 		      public void onClick(DialogInterface dialog, int id) {
-		    	  
+		    	  Intent i = new Intent(Intent.ACTION_SEND);
+		    	  i.setType("message/rfc822");
+		    	  i.putExtra(Intent.EXTRA_EMAIL  , new String[]{""});
+		    	  i.putExtra(Intent.EXTRA_SUBJECT, currentOppertunityTitle);
+		    	  i.putExtra(Intent.EXTRA_TEXT   , currentOppertunityBody);
+		    	  try {
+		    	      startActivity(Intent.createChooser(i, "Send mail..."));
+		    	  } catch (android.content.ActivityNotFoundException ex) {
+		    	      Toast.makeText(searchResult.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+		    	  }
 		    } 
 		 }); 
 
@@ -200,8 +212,10 @@ public class searchResult extends Activity {
 	private String getOppertunityDetails(int index){
 //		Cursor c = SearchPage.myDb.test(id);
 		alertDialog.setTitle("More details ..." );
-        alertDialog.setMessage(moreDetails.get(index).replaceAll("[^\\x00-\\x7F]", ""));
-
+        	alertDialog.setMessage(moreDetails.get(index).replaceAll("[^\\x00-\\x7F]", ""));
+        	Scanner scanner = new Scanner(moreDetails.get(index).replaceAll("[^\\x00-\\x7F]", ""));
+        	currentOppertunityTitle = scanner.nextLine();
+        	currentOppertunityBody = moreDetails.get(index).replaceAll("[^\\x00-\\x7F]", "");
 		return "D";
 		
 	}
