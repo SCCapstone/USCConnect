@@ -162,6 +162,7 @@ public class SearchPage extends ActionBarActivity {
 	private void setOpportunitiesDropList() {
 		// TODO Auto-generated method stub
 		this.arraySpinner = new String[] { 
+				"Any",
 				"Community Service/Engagement",
 				"National/Domestic Experience",
 				"International Experience",
@@ -218,7 +219,8 @@ public class SearchPage extends ActionBarActivity {
 	
 	private void setTimeFrameDropList() {
 		// TODO Auto-generated method stub
-		this.arraySpinner = new String[] { 
+		this.arraySpinner = new String[] {
+				"Any", 
 				"Fall Semester",
 				"Spring Semester",
 				"Maymester",
