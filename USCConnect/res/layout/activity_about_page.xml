@@ -38,17 +38,6 @@
         tools:ignore="UnusedAttribute" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="100dip"
-        android:layout_height="100dip"
-        android:layout_alignBottom="@+id/imageButton2"
-        android:layout_alignRight="@+id/textView1"
-        android:background="#FFFFFF"
-        android:onClick="TweetClicked"
-        android:scaleType="fitCenter"
-        android:src="@drawable/twitter_small" />
-
-    <ImageButton
         android:id="@+id/imageButton2"
         android:layout_width="100dip"
         android:layout_height="100dip"
@@ -58,7 +47,7 @@
         android:background="#FFFFFF"
         android:onClick="FBKClicked"
         android:scaleType="fitCenter"
-        android:src="@drawable/facebook" />
+        android:src="@drawable/fb_icon_325x325" />
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -69,7 +58,32 @@
         android:background="#FFFFFF"
         android:onClick="instaClicked"
         android:scaleType="fitCenter"
-        android:src="@drawable/instagram" />
+        android:src="@drawable/instagram_icon_large" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="100dip"
+        android:layout_height="100dip"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_alignTop="@+id/imageButton3"
+        android:background="#FFFFFF"
+        android:onClick="TweetClicked"
+        android:scaleType="fitCenter"
+        android:src="@drawable/twitterblue" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageButton3"
+        android:layout_alignLeft="@+id/imageButton2"
+        android:layout_alignRight="@+id/imageButton4"
+        android:layout_marginBottom="11dp"
+        android:alpha="1.0"
+        android:background="#636363"
+        android:textColor="#FFFFFF"
+        android:onClick="adviseBtnClicked"
+        android:text="Make an Appointment" />
 
 </RelativeLayout>
     <ListView

@@ -67,12 +67,14 @@ public class AboutPage extends Activity {
 		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
 				R.drawable.ic_drawer, R.string.drawer_open,
 				R.string.drawer_close) {
+			@Override
 			public void onDrawerClosed(View view) {
 				getActionBar().setTitle(mTitle);
 				invalidateOptionsMenu(); // creates call to
 											// onPrepareOptionsMenu()
 			}
 
+			@Override
 			public void onDrawerOpened(View drawerView) {
 				getActionBar().setTitle(mDrawerTitle);
 				invalidateOptionsMenu(); // creates call to
@@ -96,7 +98,11 @@ public class AboutPage extends Activity {
 
 	}
 	
-	
+	public void adviseBtnClicked(View v) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://advisingappointments.sc.edu/USCConnectGLD/eSARSRedirect.aspx")));
+
+	}
 	public void instaClicked(View v) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/uscconnect/")));
