@@ -418,15 +418,20 @@ public class DBAdapter {
 
 
 	public Cursor doTheSearch(String description, String timeFrame, String oppertunityType) {
-		// TODO Auto-generated method stub
-		Cursor crs=db.rawQuery("SELECT * FROM "
-				+ DATABASE_TABLE +" WHERE " 
+ 		// TODO Auto-generated method stub
+		if (timeFrame.contains("Any"))
+			timeFrame = "";
+		if (oppertunityType.contains("Any"))
+			oppertunityType = "";
+		
+ 		Cursor crs=db.rawQuery("SELECT * FROM "
+ 				+ DATABASE_TABLE +" WHERE " 
 				+ KEY_DESCRIPTION + " LIKE '%" + description.replace("'", "") + "%' AND " + KEY_TIMEFRAME
 				+ " LIKE '%" + timeFrame + "%' AND " + KEY_OPPORTUNITYTYPE
 				+ " LIKE '%" + oppertunityType + "%'; ", null);
-		return crs;
-//		db.execSQL("SELECT * FROM " + DATABASE_TABLE +" WHERE " + COL_8 + " LIKE '%gh%';");	
-	}
+ 		return crs;
+ //		db.execSQL("SELECT * FROM " + DATABASE_TABLE +" WHERE " + COL_8 + " LIKE '%gh%';");	
+ 	}
 	public static void insertMultipleRows(String query) {
 		db.execSQL(query);			
 	}

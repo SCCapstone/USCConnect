@@ -97,10 +97,8 @@ public class searchResult extends Activity {
 		DBAdapter myDb = SearchPage.myDb;
 		
 		Cursor c = null;
-		if (searchKeyword.length() != 0){
-			c = SearchPage.myDb.doTheSearch(searchKeyword, timeFrame, typeOfOppertunity);
-			setUpSearchResults(c, searchKeyword);
-		}
+		c = SearchPage.myDb.doTheSearch(searchKeyword, timeFrame, typeOfOppertunity);
+		setUpSearchResults(c, searchKeyword);
 	}
 	
 	private void addDrawerItems()
