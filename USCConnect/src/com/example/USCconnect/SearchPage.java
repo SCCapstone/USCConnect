@@ -121,10 +121,10 @@ public class SearchPage extends ActionBarActivity {
 		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
 
 		// Add Drawer Item to dataList
-		dataList.add(new DrawerItem("Main Menu", R.drawable.ic_action_good));
-		dataList.add(new DrawerItem("Personal Log", R.drawable.ic_drawer));
-		dataList.add(new DrawerItem("GLD Application", R.drawable.ic_action_good));
-		dataList.add(new DrawerItem("About Us", R.drawable.ic_action_about));
+		dataList.add(new DrawerItem("Main Menu"));
+		dataList.add(new DrawerItem("Personal Log"));
+		dataList.add(new DrawerItem("GLD Application"));
+		dataList.add(new DrawerItem("About Us"));
 
 		
 

@@ -19,6 +19,7 @@ package com.example.uscconnect;
 import android.app.Activity;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -75,6 +76,16 @@ public class NoteEdit extends Activity {
         }
     }
     
+    public void deleteNewLine(Editable s) 
+    {
+        for(int i = s.length(); i > 0; i--){
+
+            if(s.subSequence(i-1, i).toString().equals("\n"))
+                 s.replace(i-1, i, "");
+
+        }
+    }
+    
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -94,7 +105,7 @@ public class NoteEdit extends Activity {
     }
     
     private void saveState() {
-    	
+    	deleteNewLine(mTitleText.getText());
         String title = mTitleText.getText().toString();
         String body = mBodyText.getText().toString();
         if(title.isEmpty() && !body.isEmpty())

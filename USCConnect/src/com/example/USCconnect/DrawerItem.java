@@ -3,12 +3,12 @@ package com.example.uscconnect;
 public class DrawerItem {
 
 	String ItemName;
-	int imgResID;
+//	int imgResID;
 	
-	public DrawerItem(String itemName, int imgResID) {
+	public DrawerItem(String itemName) {
 		super();
 		ItemName = itemName;
-		this.imgResID = imgResID;
+		//this.imgResID = imgResID;
 	}
 	
 	public String getItemName() {
@@ -17,11 +17,11 @@ public class DrawerItem {
 	public void setItemName(String itemName) {
 		ItemName = itemName;
 	}
-	public int getImgResID() {
-		return imgResID;
-	}
+//	public int getImgResID() {
+//		return imgResID;
+//	}
 	public void setImgResID(int imgResID) {
-		this.imgResID = imgResID;
+//		this.imgResID = imgResID;
 	}
 	
 	

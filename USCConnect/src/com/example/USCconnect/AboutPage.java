@@ -47,10 +47,10 @@ public class AboutPage extends Activity {
 		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
 
 		// Add Drawer Item to dataList
-		dataList.add(new DrawerItem("Main Menu", R.drawable.ic_action_good));
-		dataList.add(new DrawerItem("Find Experiences", R.drawable.ic_action_search));
-		dataList.add(new DrawerItem("Personal Log", R.drawable.ic_drawer));
-		dataList.add(new DrawerItem("GLD Application", R.drawable.ic_action_good));
+		dataList.add(new DrawerItem("Main Menu"));
+		dataList.add(new DrawerItem("Find Experiences"));
+		dataList.add(new DrawerItem("Personal Log"));
+		dataList.add(new DrawerItem("GLD Application"));
 
 		
 
