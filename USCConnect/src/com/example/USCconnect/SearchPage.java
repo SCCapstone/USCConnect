@@ -1,6 +1,8 @@
 package com.example.uscconnect;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -269,8 +271,9 @@ public class SearchPage extends ActionBarActivity {
 			myDb.deleteAll();
 
 			try {
-				reader = new BufferedReader(new InputStreamReader(getAssets().open(
-						"uscconnect_opportunities_1414761945.csv"), "UTF-8"));
+				File myFile = new File("/sdcard/uscconnect_opportunities_1414761945.csv");
+				myFile.createNewFile();
+				reader = new BufferedReader(new FileReader(myFile));
 				// displayText("I've started ot open.");
 	
 				// do reading, usually loop until end of file reading
