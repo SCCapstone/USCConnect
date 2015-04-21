@@ -223,7 +223,6 @@ public class SearchPage extends ActionBarActivity {
 				"Fall Semester",
 				"Maymester",
 				"Summer", 
-				"Spring Break" 
 				"Ongoing"
 				};
 		Spinner s = (Spinner) findViewById(R.id.spinner1);
