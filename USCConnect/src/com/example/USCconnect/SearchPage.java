@@ -165,18 +165,15 @@ public class SearchPage extends ActionBarActivity {
 		// TODO Auto-generated method stub
 		this.arraySpinner = new String[] { 
 				"Any",
-				"Community Service/Engagement",
-				"National/Domestic Experience",
+				"Community Service",
+				"National Experience",
 				"International Experience",
 				"Professional Work-based Experience", 
 				"Research/Inquiry", 
-				"Residential Living and Learning Community",
 				"Student Organization",
-				"Leadership Program",
-				"Annual or Regular Special Event",
-				"Credit Bearing Course",
+				"Leadership Opportunity",
 				"Includes integrative learning/creative component",
-				"Other"
+				"Scholarship"
 				};
 		Spinner s = (Spinner) findViewById(R.id.Spinner01);
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
@@ -224,10 +221,9 @@ public class SearchPage extends ActionBarActivity {
 		this.arraySpinner = new String[] {
 				"Any", 
 				"Fall Semester",
-				"Spring Semester",
 				"Maymester",
 				"Summer", 
-				"Spring Break", 
+				"Spring Break" 
 				"Ongoing"
 				};
 		Spinner s = (Spinner) findViewById(R.id.spinner1);
