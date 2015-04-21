@@ -221,6 +221,7 @@ public class SearchPage extends ActionBarActivity {
 		this.arraySpinner = new String[] {
 				"Any", 
 				"Fall Semester",
+				"Spring Semester",
 				"Maymester",
 				"Summer", 
 				"Ongoing"
