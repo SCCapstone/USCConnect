@@ -1,3 +1,6 @@
+# Website and Video
+http://sccapstone.github.io/USCConnect/
+
 # USCConnect
 Android app for [USC Connect](http://www.sc.edu/uscconnect/).
 
